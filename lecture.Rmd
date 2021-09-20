@@ -1,0 +1,62 @@
+---
+title: "Analogical Reasoning"
+author: "Ross Gayler"
+date: "2021-10-06"
+output: 
+  ioslides_presentation:
+    incremental: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Motivation & Objectives
+
+- Analogy is really cool and central to cognition
+- Analogy is a good use case for the unique properties of VSA/HDC
+  - What makes analogy hard for conventional computing?
+  - Which VSA/HDC features might help with analogy?
+  - Not a solved problem
+- Use a set of attempts at analogy to highlight VSA/HDC design issues
+
+## Outline
+
+- What is analogy *really*?
+
+- Plate - Hand crafted similarity
+- Mikolov - Learned word vectors
+- Kanerva - Simple substitution
+- Emruli - Substitution with lookup
+
+- Gayler - Graph isomorphism
+
+## What is analogy *really*?
+
+- Whatever it is, *Analogy* is **big**  
+  - Everybody presents a different low dimensional projection of *Analogy*
+    - Tendency to view the projection as the thing
+    
+- *Analogy* is too big to fit in this lecture
+  - So I will resort to assertions and handwaving
+    
+## Analogy is the core of cognition    
+  
+- Analogy as a party trick (not!)
+- Analogy $\gt$ Analogical Reasoning
+
+## Relational generalisation (isomorphism)
+
+## High level perception
+
+## Hypothesis generation for IBE
+
+## Plate - Hand crafted similarity
+
+## Mikolov - Learned word vectors
+
+## Kanerva - Simple substitution
+
+## Emruli - Substitution with lookup
+
+## Gayler - Graph isomorphism
