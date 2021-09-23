@@ -22,28 +22,74 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Outline
 
-- What is analogy *really*?
+- What is analogy?
+- Why is analogy hard for conventional computing?
 
-- Plate - Hand crafted similarity
-- Mikolov - Learned word vectors
+VSA design examples:
+
+- Plate - Similarity of hand crafted similarity
+- Mikolov - Similarity of learned word vectors
 - Kanerva - Simple substitution
 - Emruli - Substitution with lookup
+- Gayler - Settling on substitution
 
-- Gayler - Graph isomorphism
+## What is *Analogy*?
 
-## What is analogy *really*?
+*Analogy* $\triangleq$ what analogy *really* is
 
-- Whatever it is, *Analogy* is **big**  
+- Whatever it is, *Analogy* is **big**
+  - It's a complex, nuanced, high dimensional thing
   - Everybody presents a different low dimensional projection of *Analogy*
-    - Tendency to view the projection as the thing
+    - Tendency to view the projection as the whole thing
+      - Analogical reasoning
+      - Proportional analogies
+      - analogy $\triangleq$ **grand** analogy
     
 - *Analogy* is too big to fit in this lecture
-  - So I will resort to assertions and handwaving
+  - So I will resort to assertions and hand waving
     
-## Analogy is the core of cognition    
+## Analogy is the core of cognition
   
-- Analogy as a party trick (not!)
-- Analogy $\gt$ Analogical Reasoning
+Quote from Hofstadter (2006):
+
+analogy-making $\triangleq$  
+  the perception of common essence$^1$   
+  between two things$^2$
+
+1. In one's current frame of mind  
+2. Thing $\triangleq$ mental thing
+
+See also  
+Gust et al (2008)  
+Chalmers et al (1992)  
+Blokpoel et al (2018)
+
+I will jump off from Blokpoel:
+cognition as inference to best explanation
+
+## Inference to Best Explanation
+
+The cognitive loop:  
+Given some "inputs" (evidence $e$)
+and a set of potential explanations (hypotheses $H$)
+find the hypothesis that best explains the evidence.
+
+Evidence and hypotheses are represented relationally
+(think trees/graphs).
+
+Hypotheses are generated from *all* the agent's knowledge.
+
+"explains" is interpreted as graph structure matching (graph isomorphism).
+
+Partial structure matching enables inference
+by carrying structure from one representation to another
+(think pattern completion in a memory)
+
+## Example: relational representation of evidence
+
+## Example: relational representation of knowledge
+
+## Example: relational representation of explanation
 
 ## Relational generalisation (isomorphism)
 
@@ -59,4 +105,42 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Emruli - Substitution with lookup
 
-## Gayler - Graph isomorphism
+## Gayler - Settling on substitution
+
+## References / Reading
+
+M. Blokpoel, T. Wareham, P. Haselager, and I. van Rooij (2018) *Deep Analogical Inference as the Origin of Hypotheses*. The Journal of Problem Solving
+
+D. J. Chalmers, R. M. French, and D. R. Hofstadter (1992) *High-level perception, representation, and analogy: A critique of artificial intelligence methodology*. Journal of Experimental & Theoretical Artificial Intelligence
+
+B. Emruli, R. W. Gayler, and F. Sandin (2013) *Analogical mapping and inference with binary spatter codes and sparse distributed memory*. The 2013 International Joint Conference on Neural Networks (IJCNN)
+
+B. Emruli and F. Sandin (2014) Analogical *Mapping with Sparse Distributed Memory: A Simple Model that Learns to Generalize from Examples*. Cognitive Computation
+
+---
+
+R. W. Gayler and S. D. Levy (2009) *A Distributed Basis for Analogical Mapping*. New Frontiers in Analogy Research, Proceedings of the Second International Conference on Analogy, ANALOGY-2009
+
+R. W. Gayler and R. Wales (1998) *Connections, Binding, Unification and Analogical Promiscuity*. Advances In Analogy Research: Integration Of Theory And Data From The Cognitive, Computational, And Neural Sciences
+
+H. Gust, U. Krumnack, K.-U. Kühnberger, and A. Schwering (2008) *Analogical Reasoning: A Core of Cognition*. KI - Künstliche Intelligenz
+
+D. R. Hofstadter (2006) *Analogy as the core of cognition*. Stanford Presidential Lecture
+
+P. Kanerva (2000) *Large Patterns Make Great Symbols: An Example of Learning from Example*. Hybrid Neural Systems
+
+---
+
+P. Kanerva (2010) *What We Mean when We Say "What's the Dollar of Mexico?": Prototypes and Mapping in Concept Space*. Quantum Informatics 2010: AAAI-Fall 2010 Symposium on Quantum Informatics for Cognitive, Social, and Semantic Processes
+
+S. D. Levy and R. W. Gayler (2009) *"Lateral inhibition" in a fully distributed connectionist architecture*. In Proceedings of the Ninth International Conference on Cognitive Modeling (ICCM 2009)
+
+T. Mikolov, W. Yih, and G. Zweig (2013) *Linguistic Regularities in Continuous Space Word Representations*. Proceedings of NAACL-HLT 2013
+
+T. A. Plate (1994) *Distributed Representations and Nested Compositional Structure*. PhD Thesis. University of Toronto
+
+T. A. Plate (2000) *Analogy retrieval and processing with distributed vector representations*. Expert Systems
+
+---
+
+A. Rogers, A. Drozd, and L. Bofang (2017) *The (too Many) Problems of Analogical Reasoning with Word Vectors*. Proceedings of the 6th Joint Conference on Lexical and Computational Semantics (\*SEM 2017)

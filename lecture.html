@@ -130,39 +130,80 @@ slide:not(.current) .plotly.html-widget{
 </article></slide><slide class=""><hgroup><h2>Outline</h2></hgroup><article  id="outline">
 
 <ul>
-<li><p>What is analogy <em>really</em>?</p></li>
-<li><p>Plate - Hand crafted similarity</p></li>
-<li><p>Mikolov - Learned word vectors</p></li>
-<li><p>Kanerva - Simple substitution</p></li>
-<li><p>Emruli - Substitution with lookup</p></li>
-<li><p>Gayler - Graph isomorphism</p></li>
+<li>What is analogy?</li>
+<li>Why is analogy hard for conventional computing?</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>What is analogy <em>really</em>?</h2></hgroup><article  id="what-is-analogy-really">
+<p>VSA design examples:</p>
+
+<ul>
+<li>Plate - Similarity of hand crafted similarity</li>
+<li>Mikolov - Similarity of learned word vectors</li>
+<li>Kanerva - Simple substitution</li>
+<li>Emruli - Substitution with lookup</li>
+<li>Gayler - Settling on substitution</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>What is <em>Analogy</em>?</h2></hgroup><article  id="what-is-analogy">
+
+<p><em>Analogy</em> \(\triangleq\) what analogy <em>really</em> is</p>
 
 <ul>
 <li>Whatever it is, <em>Analogy</em> is <strong>big</strong>
 
 <ul>
+<li>It’s a complex, nuanced, high dimensional thing</li>
 <li>Everybody presents a different low dimensional projection of <em>Analogy</em>
 
 <ul>
-<li>Tendency to view the projection as the thing</li>
+<li>Tendency to view the projection as the whole thing
+
+<ul>
+<li>Analogical reasoning</li>
+<li>Proportional analogies</li>
+<li>analogy \(\triangleq\) <strong>grand</strong> analogy</li>
+</ul></li>
 </ul></li>
 </ul></li>
 <li><em>Analogy</em> is too big to fit in this lecture
 
 <ul>
-<li>So I will resort to assertions and handwaving</li>
+<li>So I will resort to assertions and hand waving</li>
 </ul></li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>Analogy is the core of cognition</h2></hgroup><article  id="analogy-is-the-core-of-cognition">
 
-<ul>
-<li>Analogy as a party trick (not!)</li>
-<li>Analogy \(\gt\) Analogical Reasoning</li>
-</ul>
+<p>Quote from Hofstadter (2006):</p>
+
+<p>analogy-making \(\triangleq\)<br/>the perception of common essence\(^1\)<br/>between two things\(^2\)</p>
+
+<ol>
+<li>In one’s current frame of mind<br/></li>
+<li>Thing \(\triangleq\) mental thing</li>
+</ol>
+
+<p>See also<br/>Gust et al (2008)<br/>Chalmers et al (1992)<br/>Blokpoel et al (2018)</p>
+
+<p>I will jump off from Blokpoel: cognition as inference to best explanation</p>
+
+</article></slide><slide class=""><hgroup><h2>Inference to Best Explanation</h2></hgroup><article  id="inference-to-best-explanation">
+
+<p>The cognitive loop:<br/>Given some &ldquo;inputs&rdquo; (evidence \(e\)) and a set of potential explanations (hypotheses \(H\)) find the hypothesis that best explains the evidence.</p>
+
+<p>Evidence and hypotheses are represented relationally (think trees/graphs).</p>
+
+<p>Hypotheses are generated from <em>all</em> the agent’s knowledge.</p>
+
+<p>&ldquo;explains&rdquo; is interpreted as graph structure matching (graph isomorphism).</p>
+
+<p>Partial structure matching enables inference by carrying structure from one representation to another (think pattern completion in a memory)</p>
+
+</article></slide><slide class=""><hgroup><h2>Example: relational representation of evidence</h2></hgroup><article  id="example-relational-representation-of-evidence">
+
+</article></slide><slide class=""><hgroup><h2>Example: relational representation of knowledge</h2></hgroup><article  id="example-relational-representation-of-knowledge">
+
+</article></slide><slide class=""><hgroup><h2>Example: relational representation of explanation</h2></hgroup><article  id="example-relational-representation-of-explanation">
 
 </article></slide><slide class=""><hgroup><h2>Relational generalisation (isomorphism)</h2></hgroup><article  id="relational-generalisation-isomorphism">
 
@@ -178,7 +219,45 @@ slide:not(.current) .plotly.html-widget{
 
 </article></slide><slide class=""><hgroup><h2>Emruli - Substitution with lookup</h2></hgroup><article  id="emruli---substitution-with-lookup">
 
-</article></slide><slide class=""><hgroup><h2>Gayler - Graph isomorphism</h2></hgroup><article  id="gayler---graph-isomorphism"></article></slide>
+</article></slide><slide class=""><hgroup><h2>Gayler - Settling on substitution</h2></hgroup><article  id="gayler---settling-on-substitution">
+
+</article></slide><slide class=""><hgroup><h2>References / Reading</h2></hgroup><article  id="references-reading">
+
+<p>M. Blokpoel, T. Wareham, P. Haselager, and I. van Rooij (2018) <em>Deep Analogical Inference as the Origin of Hypotheses</em>. The Journal of Problem Solving</p>
+
+<p>D. J. Chalmers, R. M. French, and D. R. Hofstadter (1992) <em>High-level perception, representation, and analogy: A critique of artificial intelligence methodology</em>. Journal of Experimental &amp; Theoretical Artificial Intelligence</p>
+
+<p>B. Emruli, R. W. Gayler, and F. Sandin (2013) <em>Analogical mapping and inference with binary spatter codes and sparse distributed memory</em>. The 2013 International Joint Conference on Neural Networks (IJCNN)</p>
+
+<p>B. Emruli and F. Sandin (2014) Analogical <em>Mapping with Sparse Distributed Memory: A Simple Model that Learns to Generalize from Examples</em>. Cognitive Computation</p>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<p>R. W. Gayler and S. D. Levy (2009) <em>A Distributed Basis for Analogical Mapping</em>. New Frontiers in Analogy Research, Proceedings of the Second International Conference on Analogy, ANALOGY-2009</p>
+
+<p>R. W. Gayler and R. Wales (1998) <em>Connections, Binding, Unification and Analogical Promiscuity</em>. Advances In Analogy Research: Integration Of Theory And Data From The Cognitive, Computational, And Neural Sciences</p>
+
+<p>H. Gust, U. Krumnack, K.-U. Kühnberger, and A. Schwering (2008) <em>Analogical Reasoning: A Core of Cognition</em>. KI - Künstliche Intelligenz</p>
+
+<p>D. R. Hofstadter (2006) <em>Analogy as the core of cognition</em>. Stanford Presidential Lecture</p>
+
+<p>P. Kanerva (2000) <em>Large Patterns Make Great Symbols: An Example of Learning from Example</em>. Hybrid Neural Systems</p>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<p>P. Kanerva (2010) <em>What We Mean when We Say &ldquo;What’s the Dollar of Mexico?&rdquo;: Prototypes and Mapping in Concept Space</em>. Quantum Informatics 2010: AAAI-Fall 2010 Symposium on Quantum Informatics for Cognitive, Social, and Semantic Processes</p>
+
+<p>S. D. Levy and R. W. Gayler (2009) <em>&ldquo;Lateral inhibition&rdquo; in a fully distributed connectionist architecture</em>. In Proceedings of the Ninth International Conference on Cognitive Modeling (ICCM 2009)</p>
+
+<p>T. Mikolov, W. Yih, and G. Zweig (2013) <em>Linguistic Regularities in Continuous Space Word Representations</em>. Proceedings of NAACL-HLT 2013</p>
+
+<p>T. A. Plate (1994) <em>Distributed Representations and Nested Compositional Structure</em>. PhD Thesis. University of Toronto</p>
+
+<p>T. A. Plate (2000) <em>Analogy retrieval and processing with distributed vector representations</em>. Expert Systems</p>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<p>A. Rogers, A. Drozd, and L. Bofang (2017) <em>The (too Many) Problems of Analogical Reasoning with Word Vectors</em>. Proceedings of the 6th Joint Conference on Lexical and Computational Semantics (*SEM 2017)</p></article></slide>
 
 
   <slide class="backdrop"></slide>
