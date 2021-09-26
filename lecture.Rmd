@@ -99,11 +99,35 @@ by carrying structure from one representation to another
 
 ## Plate - Hand crafted similarity
 
+## Dot Product Similarity is Local
+
+Dot product similarity is at the heart of system dynamics
+
+Dot product similarity is "local"
+  - Most vectors are quasi-orthogonal to direction of interest
+  - Similarity doesn't discriminate between them
+  - Therefore similarity driven dynamics can't select between orthogonal directions
+  
+Relational structure is encoded via Multiply and Permute, which are randomising (orthogonalising)
+  - Therefore, something needs to be done to transform relational distance into similarity so that it can engage the dynamics
+
 ## Mikolov - Learned word vectors
 
 ## Kanerva - Simple substitution
 
 ## Emruli - Substitution with lookup
+
+## Parallelism
+
+- Hardware parallelism
+  - Operations are generally elementwise
+  - Small fan-in per element
+  
+- Mathematical parallelism
+  - Distributive parallelism
+    - A * (B + C + ...) = A*B + A*C + ...
+  - Equational parallelism
+    - T = A + B + C = P + Q + R + S = X * Y * Z
 
 ## Gayler - Settling on substitution
 

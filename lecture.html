@@ -213,11 +213,44 @@ slide:not(.current) .plotly.html-widget{
 
 </article></slide><slide class=""><hgroup><h2>Plate - Hand crafted similarity</h2></hgroup><article  id="plate---hand-crafted-similarity">
 
+</article></slide><slide class=""><hgroup><h2>Dot Product Similarity is Local</h2></hgroup><article  id="dot-product-similarity-is-local">
+
+<p>Dot product similarity is at the heart of system dynamics</p>
+
+<p>Dot product similarity is &ldquo;local&rdquo; - Most vectors are quasi-orthogonal to direction of interest - Similarity doesn’t discriminate between them - Therefore similarity driven dynamics can’t select between orthogonal directions</p>
+
+<p>Relational structure is encoded via Multiply and Permute, which are randomising (orthogonalising) - Therefore, something needs to be done to transform relational distance into similarity so that it can engage the dynamics</p>
+
 </article></slide><slide class=""><hgroup><h2>Mikolov - Learned word vectors</h2></hgroup><article  id="mikolov---learned-word-vectors">
 
 </article></slide><slide class=""><hgroup><h2>Kanerva - Simple substitution</h2></hgroup><article  id="kanerva---simple-substitution">
 
 </article></slide><slide class=""><hgroup><h2>Emruli - Substitution with lookup</h2></hgroup><article  id="emruli---substitution-with-lookup">
+
+</article></slide><slide class=""><hgroup><h2>Parallelism</h2></hgroup><article  id="parallelism">
+
+<ul>
+<li>Hardware parallelism
+
+<ul>
+<li>Operations are generally elementwise</li>
+<li>Small fan-in per element</li>
+</ul></li>
+<li>Mathematical parallelism
+
+<ul>
+<li>Distributive parallelism
+
+<ul>
+<li>A * (B + C + …) = A<em>B + A</em>C + …</li>
+</ul></li>
+<li>Equational parallelism
+
+<ul>
+<li>T = A + B + C = P + Q + R + S = X * Y * Z</li>
+</ul></li>
+</ul></li>
+</ul>
 
 </article></slide><slide class=""><hgroup><h2>Gayler - Settling on substitution</h2></hgroup><article  id="gayler---settling-on-substitution">
 
