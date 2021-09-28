@@ -18,10 +18,10 @@
     },
     "digest": {
       "Package": "digest",
-      "Version": "0.6.27",
+      "Version": "0.6.28",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "a0cbe758a531d054b537d16dff4d58a1"
+      "Hash": "49b5c6e230bfec487b8917d5a0c77cca"
     },
     "evaluate": {
       "Package": "evaluate",
@@ -74,10 +74,10 @@
     },
     "knitr": {
       "Package": "knitr",
-      "Version": "1.34",
+      "Version": "1.35",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "aa958054ac6f0360926bb952ea302f0f"
+      "Hash": "0621b045572f11eb05068fd277f54181"
     },
     "magrittr": {
       "Package": "magrittr",
@@ -123,10 +123,10 @@
     },
     "tinytex": {
       "Package": "tinytex",
-      "Version": "0.33",
+      "Version": "0.34",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "6e0ad90ac5669e35d5456cb61b295acb"
+      "Hash": "043daa786f4d254f0031534150e28d42"
     },
     "xfun": {
       "Package": "xfun",

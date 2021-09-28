@@ -4,7 +4,11 @@ author: "Ross Gayler"
 date: "2021-10-06"
 output: 
   ioslides_presentation:
+    widescreen: true
     incremental: false
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -13,103 +17,211 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Motivation & Objectives
 
-- Analogy is really cool and central to cognition
-- Analogy is a good use case for the unique properties of VSA/HDC
-  - What makes analogy hard for conventional computing?
-  - Which VSA/HDC features might help with analogy?
-  - Not a solved problem
-- Use a set of attempts at analogy to highlight VSA/HDC design issues
+Analogy is really cool and central to cognition
+
+Analogy is a good use case for the unique properties of VSA/HDC
+
+-   What makes analogy hard for conventional computing?
+-   Which VSA/HDC features might help with analogy?
+-   Not a solved problem
+
+Use a set of attempts at aspects of analogy to highlight VSA/HDC design
+issues
 
 ## Outline
 
-- What is analogy?
-- Why is analogy hard for conventional computing?
+What is analogy?
+
+Why is analogy hard for conventional computing?
 
 VSA design examples:
 
-- Plate - Similarity of hand crafted similarity
-- Mikolov - Similarity of learned word vectors
-- Kanerva - Simple substitution
-- Emruli - Substitution with lookup
-- Gayler - Settling on substitution
+-   Plate - Similarity of hand crafted vectors
+-   Mikolov - Similarity of learned word vectors
+-   Kanerva - Simple substitution
+-   Emruli - Substitution with lookup
+-   Gayler - Settling on substitution
 
-## What is *Analogy*?
+## What is *ANALOGY*?
 
-*Analogy* $\triangleq$ what analogy *really* is
+*ANALOGY* $\triangleq$ what analogy *really* is
 
-- Whatever it is, *Analogy* is **big**
-  - It's a complex, nuanced, high dimensional thing
-  - Everybody presents a different low dimensional projection of *Analogy*
-    - Tendency to view the projection as the whole thing
-      - Analogical reasoning
-      - Proportional analogies
-      - analogy $\triangleq$ **grand** analogy
-    
-- *Analogy* is too big to fit in this lecture
-  - So I will resort to assertions and hand waving
-    
+Whatever it is, *ANALOGY* is **big**
+
+-   It's a complex, nuanced, high dimensional thing
+
+-   Everybody presents a different low dimensional projection of
+    *ANALOGY*
+
+    -   Tendency to view the projection as the whole thing
+
+        -   Analogical reasoning
+        -   Proportional analogies
+        -   Grand analogy (analogy as a party trick)
+
+*ANALOGY* is too big to fit in this lecture, so I will resort to
+assertions and hand waving to explain enough of it for current purposes
+
 ## Analogy is the core of cognition
-  
+
 Quote from Hofstadter (2006):
 
-analogy-making $\triangleq$  
-  the perception of common essence$^1$   
-  between two things$^2$
+analogy-making $\triangleq$\
+the perception of common essence^1^\
+between two things^2^
 
-1. In one's current frame of mind  
-2. Thing $\triangleq$ mental thing
+<font size="4"> ^1^ In one's current frame of mind\
+^2^ Thing $\triangleq$ mental thing </font>
 
-See also  
-Gust et al (2008)  
-Chalmers et al (1992)  
+See also\
+Gust et al (2008)\
+Chalmers et al (1992)\
 Blokpoel et al (2018)
 
-I will jump off from Blokpoel:
-cognition as inference to best explanation
+I will jump off from Blokpoel:\
+cognition as inference to the best explanation
 
-## Inference to Best Explanation
+## Inference to the Best Explanation
 
-The cognitive loop:  
-Given some "inputs" (evidence $e$)
-and a set of potential explanations (hypotheses $H$)
-find the hypothesis that best explains the evidence.
+The cognitive loop:\
+Given some inputs (evidence $e$) and a set of potential explanations
+(hypotheses $H$) find the hypothesis ($h$) that best explains the
+evidence
 
-Evidence and hypotheses are represented relationally
-(think trees/graphs).
+Evidence and hypotheses are represented relationally (trees/graphs)
 
-Hypotheses are generated from *all* the agent's knowledge.
+-   This is effectively a bet that natural regularities are best
+    captured as transformations
 
-"explains" is interpreted as graph structure matching (graph isomorphism).
+"explains" is interpreted as graph structure matching - (sub)graph
+isomorphism
 
-Partial structure matching enables inference
-by carrying structure from one representation to another
-(think pattern completion in a memory)
+-   "common essence" = common relational structure
 
-## Example: relational representation of evidence
+Partial structure matching enables inference by carrying structure from
+one representation to another (like pattern completion in
+autoassociative memory)
 
-## Example: relational representation of knowledge
+## How are hypotheses generated?
 
-## Example: relational representation of explanation
+Hypotheses are generated from *all* the agent's relevant knowledge
 
-## Relational generalisation (isomorphism)
+The hypothesis space must be open-ended, to allow for novelty
 
-## High level perception
+-   Hypotheses must be compositional
 
-## Hypothesis generation for IBE
+    -   Allows infinite productivity
+    -   Allows novel compositions of familiar components
+    -   Like a grammar for hypotheses
+
+## Example: Relational representation
+
+solar system = base structure = hypothesis (on this slide)\
+atom = target structure = evidence (on this slide)  
+structural similarity = literal similarity given appropriate systematic substitution
+
+![<font size="1">Chalmers et al
+(1992)</font>](assets/chalmers-analogy_graphs.png){width="60%"}
+
+## Example: Relational representation of evidence
+
+![<font size="1">Blokpoel et al
+(2018)</font>](assets/blokpoel-evidence.png){width="100%"}
+
+## Example: Relational representation of knowledge
+
+![<font size="1">Blokpoel et al
+(2018)</font>](assets/blokpoel-knowledge.png){width="38%"}
+
+## Example: Analogical augmentation
+
+![<font size="1">Blokpoel et al
+(2018)</font>](assets/blokpoel-augmentation_2.png){width="80%"}
+
+## Example: Augmentation of evidence
+
+![<font size="1">Blokpoel et al
+(2018)</font>](assets/blokpoel-augmentation_1.png){width="70%"}
+
+## Example: Explanation
+
+![<font size="1">Blokpoel et al
+(2018)</font>](assets/blokpoel-explanation_2.png){width="72%"}
+
+## Why is analogy hard for conventional computing?
+
+Subgraph isomorphism (of two graphs) is NP-complete
+
+- Considers all possible vertex mappings
+
+- The "obvious" approach is brute-force exhaustive enumeration
+
+Considering all the base structures in memory is much larger
+
+Considering the transitive closure of analogical augmentations is much larger
 
 ## Plate - Hand crafted similarity
+
+Focus of Chapter 6 of Plate's thesis (1994)
+is the adequacy of dot-product similarity
+as a measure of structural similarity of representations
+
+Spoiler: Representation of structure requires product/permutation operations,
+which destroy dot-product similarity of result to arguments
+
+- structural similarity $\neq$ dot-product similarity
+- structural similarity $\triangleq$ dot-product similarity after appropriate substitution
+
+Reports experiments with hand-crafted representations
+aimed at qualitatively reproducing the results of psychology research
+into human judgement of analogical similarity
+
+## Hand-crafted representations (Plate, 2000)
+
+**P** (Probe) "Spot bit Jane, causing Jane to flee from Spot"
+
+**LS** (Literal Similarity) “Fido bit John, causing John to flee from Fido.” (Has both structural and superficial similarity to the probe P.)
+
+**SF** (Surface features) “John fled from Fido, causing Fido to bite John.” (Has superficial but not structural similarity.)
+
+**CM** (Cross-mapped analogy) “Fred bit Rover, causing Rover to flee from Fred.” (Has both structural and superficial similarity, but types of corresponding objects are switched.)
+
+**AN** (Analogy) “Mort bit Felix, causing Felix to flee from Mort.” (Has structural but not superficial similarity).
+
+**FOR** (First-order-relations only) “Mort fled from Felix, causing Felix to bite Mort.” (Has neither structural nor superficial similarity, other than shared predicates.)
+
+
+## Base and token vectors
+
+![<font size="1">Plate (1994)</font>](assets/plate-base_token.png){width="74%"}
+
+## Probe vector
+
+"Spot bit Jane, causing Jane to flee from Spot"
+
+![<font size="1">Plate (1994)</font>](assets/plate-probe_vector.png){width="100%"}
+
+Construction of the episode vectors follows the same scheme
 
 ## Dot Product Similarity is Local
 
 Dot product similarity is at the heart of system dynamics
 
-Dot product similarity is "local"
-  - Most vectors are quasi-orthogonal to direction of interest
-  - Similarity doesn't discriminate between them
-  - Therefore similarity driven dynamics can't select between orthogonal directions
-  
-Relational structure is encoded via Multiply and Permute, which are randomising (orthogonalising)
-  - Therefore, something needs to be done to transform relational distance into similarity so that it can engage the dynamics
+Dot product similarity is "local" - Most vectors are quasi-orthogonal to
+direction of interest - Similarity doesn't discriminate between them -
+Therefore similarity driven dynamics can't select between orthogonal
+directions
+
+Relational structure is encoded via Multiply and Permute, which are
+randomising (orthogonalising) - Therefore, something needs to be done to
+transform relational distance into similarity so that it can engage the
+dynamics
+
+## ???
+
+Problem of two - representations are naked
+
+Needs a substitution to make the similarities visible
 
 ## Mikolov - Learned word vectors
 
@@ -119,52 +231,83 @@ Relational structure is encoded via Multiply and Permute, which are randomising 
 
 ## Parallelism
 
-- Hardware parallelism
-  - Operations are generally elementwise
-  - Small fan-in per element
-  
-- Mathematical parallelism
-  - Distributive parallelism
-    - A * (B + C + ...) = A*B + A*C + ...
-  - Equational parallelism
-    - T = A + B + C = P + Q + R + S = X * Y * Z
+-   Hardware parallelism
+
+    -   Operations are generally elementwise
+    -   Small fan-in per element
+
+-   Mathematical parallelism
+
+    -   Distributive parallelism
+
+        -   A \* (B + C + ...) = A*B + A*C + ...
+
+    -   Equational parallelism
+
+        -   T = A + B + C = P + Q + R + S = X \* Y \* Z
 
 ## Gayler - Settling on substitution
 
 ## References / Reading
 
-M. Blokpoel, T. Wareham, P. Haselager, and I. van Rooij (2018) *Deep Analogical Inference as the Origin of Hypotheses*. The Journal of Problem Solving
+M. Blokpoel, T. Wareham, P. Haselager, and I. van Rooij (2018) *Deep
+Analogical Inference as the Origin of Hypotheses*. The Journal of
+Problem Solving
 
-D. J. Chalmers, R. M. French, and D. R. Hofstadter (1992) *High-level perception, representation, and analogy: A critique of artificial intelligence methodology*. Journal of Experimental & Theoretical Artificial Intelligence
+D. J. Chalmers, R. M. French, and D. R. Hofstadter (1992) *High-level
+perception, representation, and analogy: A critique of artificial
+intelligence methodology*. Journal of Experimental & Theoretical
+Artificial Intelligence
 
-B. Emruli, R. W. Gayler, and F. Sandin (2013) *Analogical mapping and inference with binary spatter codes and sparse distributed memory*. The 2013 International Joint Conference on Neural Networks (IJCNN)
+B. Emruli, R. W. Gayler, and F. Sandin (2013) *Analogical mapping and
+inference with binary spatter codes and sparse distributed memory*. The
+2013 International Joint Conference on Neural Networks (IJCNN)
 
-B. Emruli and F. Sandin (2014) Analogical *Mapping with Sparse Distributed Memory: A Simple Model that Learns to Generalize from Examples*. Cognitive Computation
+B. Emruli and F. Sandin (2014) Analogical *Mapping with Sparse
+Distributed Memory: A Simple Model that Learns to Generalize from
+Examples*. Cognitive Computation
 
----
+------------------------------------------------------------------------
 
-R. W. Gayler and S. D. Levy (2009) *A Distributed Basis for Analogical Mapping*. New Frontiers in Analogy Research, Proceedings of the Second International Conference on Analogy, ANALOGY-2009
+R. W. Gayler and S. D. Levy (2009) *A Distributed Basis for Analogical
+Mapping*. New Frontiers in Analogy Research, Proceedings of the Second
+International Conference on Analogy, ANALOGY-2009
 
-R. W. Gayler and R. Wales (1998) *Connections, Binding, Unification and Analogical Promiscuity*. Advances In Analogy Research: Integration Of Theory And Data From The Cognitive, Computational, And Neural Sciences
+R. W. Gayler and R. Wales (1998) *Connections, Binding, Unification and
+Analogical Promiscuity*. Advances In Analogy Research: Integration Of
+Theory And Data From The Cognitive, Computational, And Neural Sciences
 
-H. Gust, U. Krumnack, K.-U. Kühnberger, and A. Schwering (2008) *Analogical Reasoning: A Core of Cognition*. KI - Künstliche Intelligenz
+H. Gust, U. Krumnack, K.-U. Kühnberger, and A. Schwering (2008)
+*Analogical Reasoning: A Core of Cognition*. KI - Künstliche Intelligenz
 
-D. R. Hofstadter (2006) *Analogy as the core of cognition*. Stanford Presidential Lecture
+D. R. Hofstadter (2006) *Analogy as the core of cognition*. Stanford
+Presidential Lecture
 
-P. Kanerva (2000) *Large Patterns Make Great Symbols: An Example of Learning from Example*. Hybrid Neural Systems
+P. Kanerva (2000) *Large Patterns Make Great Symbols: An Example of
+Learning from Example*. Hybrid Neural Systems
 
----
+------------------------------------------------------------------------
 
-P. Kanerva (2010) *What We Mean when We Say "What's the Dollar of Mexico?": Prototypes and Mapping in Concept Space*. Quantum Informatics 2010: AAAI-Fall 2010 Symposium on Quantum Informatics for Cognitive, Social, and Semantic Processes
+P. Kanerva (2010) *What We Mean when We Say "What's the Dollar of
+Mexico?": Prototypes and Mapping in Concept Space*. Quantum Informatics
+2010: AAAI-Fall 2010 Symposium on Quantum Informatics for Cognitive,
+Social, and Semantic Processes
 
-S. D. Levy and R. W. Gayler (2009) *"Lateral inhibition" in a fully distributed connectionist architecture*. In Proceedings of the Ninth International Conference on Cognitive Modeling (ICCM 2009)
+S. D. Levy and R. W. Gayler (2009) *"Lateral inhibition" in a fully
+distributed connectionist architecture*. In Proceedings of the Ninth
+International Conference on Cognitive Modeling (ICCM 2009)
 
-T. Mikolov, W. Yih, and G. Zweig (2013) *Linguistic Regularities in Continuous Space Word Representations*. Proceedings of NAACL-HLT 2013
+T. Mikolov, W. Yih, and G. Zweig (2013) *Linguistic Regularities in
+Continuous Space Word Representations*. Proceedings of NAACL-HLT 2013
 
-T. A. Plate (1994) *Distributed Representations and Nested Compositional Structure*. PhD Thesis. University of Toronto
+T. A. Plate (1994) *Distributed Representations and Nested Compositional
+Structure*. PhD Thesis. University of Toronto
 
-T. A. Plate (2000) *Analogy retrieval and processing with distributed vector representations*. Expert Systems
+T. A. Plate (2000) *Analogy retrieval and processing with distributed
+vector representations*. Expert Systems
 
----
+------------------------------------------------------------------------
 
-A. Rogers, A. Drozd, and L. Bofang (2017) *The (too Many) Problems of Analogical Reasoning with Word Vectors*. Proceedings of the 6th Joint Conference on Lexical and Computational Semantics (\*SEM 2017)
+A. Rogers, A. Drozd, and L. Bofang (2017) *The (too Many) Problems of
+Analogical Reasoning with Word Vectors*. Proceedings of the 6th Joint
+Conference on Lexical and Computational Semantics (\*SEM 2017)
