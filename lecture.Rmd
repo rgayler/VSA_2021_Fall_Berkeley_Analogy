@@ -117,8 +117,9 @@ The hypothesis space must be open-ended, to allow for novelty
 ## Example: Relational representation
 
 solar system = base structure = hypothesis (on this slide)\
-atom = target structure = evidence (on this slide)  
-structural similarity = literal similarity given appropriate systematic substitution
+atom = target structure = evidence (on this slide)\
+structural similarity = literal similarity given appropriate systematic
+substitution
 
 ![<font size="1">Chalmers et al
 (1992)</font>](assets/chalmers-analogy_graphs.png){width="60%"}
@@ -152,84 +153,22 @@ structural similarity = literal similarity given appropriate systematic substitu
 
 Subgraph isomorphism (of two graphs) is NP-complete
 
-- Considers all possible vertex mappings
+-   Considers all possible vertex mappings
 
-- The "obvious" approach is brute-force exhaustive enumeration
+-   The "obvious" approach is brute-force exhaustive enumeration
 
-Considering all the base structures in memory is much larger
+-   Each vertex mapping provides very little information about the
+    adequacy of the other vertex mappings
 
-Considering the transitive closure of analogical augmentations is much larger
+Considering all the base structures in the agent's knowledge is much
+larger
 
-## Plate - Hand crafted similarity
+Considering the transitive closure of analogical augmentations is much
+larger
 
-Focus of Chapter 6 of Plate's thesis (1994)
-is the adequacy of dot-product similarity
-as a measure of structural similarity of representations
+## Which VSA features might help with analogy?
 
-Spoiler: Representation of structure requires product/permutation operations,
-which destroy dot-product similarity of result to arguments
-
-- structural similarity $\neq$ dot-product similarity
-- structural similarity $\triangleq$ dot-product similarity after appropriate substitution
-
-Reports experiments with hand-crafted representations
-aimed at qualitatively reproducing the results of psychology research
-into human judgement of analogical similarity
-
-## Hand-crafted representations (Plate, 2000)
-
-**P** (Probe) "Spot bit Jane, causing Jane to flee from Spot"
-
-**LS** (Literal Similarity) “Fido bit John, causing John to flee from Fido.” (Has both structural and superficial similarity to the probe P.)
-
-**SF** (Surface features) “John fled from Fido, causing Fido to bite John.” (Has superficial but not structural similarity.)
-
-**CM** (Cross-mapped analogy) “Fred bit Rover, causing Rover to flee from Fred.” (Has both structural and superficial similarity, but types of corresponding objects are switched.)
-
-**AN** (Analogy) “Mort bit Felix, causing Felix to flee from Mort.” (Has structural but not superficial similarity).
-
-**FOR** (First-order-relations only) “Mort fled from Felix, causing Felix to bite Mort.” (Has neither structural nor superficial similarity, other than shared predicates.)
-
-
-## Base and token vectors
-
-![<font size="1">Plate (1994)</font>](assets/plate-base_token.png){width="74%"}
-
-## Probe vector
-
-"Spot bit Jane, causing Jane to flee from Spot"
-
-![<font size="1">Plate (1994)</font>](assets/plate-probe_vector.png){width="100%"}
-
-Construction of the episode vectors follows the same scheme
-
-## Dot Product Similarity is Local
-
-Dot product similarity is at the heart of system dynamics
-
-Dot product similarity is "local" - Most vectors are quasi-orthogonal to
-direction of interest - Similarity doesn't discriminate between them -
-Therefore similarity driven dynamics can't select between orthogonal
-directions
-
-Relational structure is encoded via Multiply and Permute, which are
-randomising (orthogonalising) - Therefore, something needs to be done to
-transform relational distance into similarity so that it can engage the
-dynamics
-
-## ???
-
-Problem of two - representations are naked
-
-Needs a substitution to make the similarities visible
-
-## Mikolov - Learned word vectors
-
-## Kanerva - Simple substitution
-
-## Emruli - Substitution with lookup
-
-## Parallelism
+Preview only at this point
 
 -   Hardware parallelism
 
@@ -245,6 +184,139 @@ Needs a substitution to make the similarities visible
     -   Equational parallelism
 
         -   T = A + B + C = P + Q + R + S = X \* Y \* Z
+
+    -   The hardware only "sees" the total vector
+
+## Plate - Hand crafted similarity
+
+Focus of Chapter 6 of Plate's thesis (1994) is the adequacy of
+dot-product similarity as a measure of structural similarity of
+representations
+
+Reports experiments with hand-crafted representations aimed at
+qualitatively reproducing the results of psychology research into human
+judgement of analogical similarity under varying contributions of
+component similarity to overall similarity.
+
+My take,
+
+-   superficial similarity $\overset{\operatorname{very}}{\approx}$
+    similarity of arguments of relations
+-   structural similarity $\overset{\operatorname{very}}{\approx}$
+    similarity of pattern of relations
+
+but researchers are free to suit the details of their definitions to
+their needs
+
+## Example stimuli <font size="1">(Plate, 2000)</font>
+
+**P** (Probe) "Spot bit Jane, causing Jane to flee from Spot"
+
+**LS** (Literal Similarity) "Fido bit John, causing John to flee from
+Fido." (Has both structural and superficial similarity to the probe P.)
+
+**SF** (Surface features) "John fled from Fido, causing Fido to bite
+John." (Has superficial but not structural similarity.)
+
+**CM** (Cross-mapped analogy) "Fred bit Rover, causing Rover to flee
+from Fred." (Has both structural and superficial similarity, but types
+of corresponding objects are switched.)
+
+**AN** (Analogy) "Mort bit Felix, causing Felix to flee from Mort." (Has
+structural but not superficial similarity).
+
+**FOR** (First-order-relations only) "Mort fled from Felix, causing
+Felix to bite Mort." (Has neither structural nor superficial similarity,
+other than shared predicates.)
+
+## Base and token vectors
+
+![<font size="1">Plate
+(1994)</font>](assets/plate-base_token.png){width="74%"}
+
+## Episode construction - Probe vector
+
+"Spot bit Jane, causing Jane to flee from Spot"
+
+![<font size="1">Plate
+(1994)</font>](assets/plate-probe_vector.png){width="100%"}
+
+Note the addition of "lower level" components to the representations of
+"higher level" composites
+
+Construction of all the episode vectors follows the same scheme
+
+## Dot-product similarity with Probe
+
+![<font size="1">Plate
+(2000)</font>](assets/plate-similarities.png){width="100%"}
+
+## Reminders of dot-product similarity
+
+$sim(A, A') = sim(A, A + X) \gt 0$
+
+$sim((P \otimes A), (P \otimes A')) = sim(A, A') \gt 0$
+
+$sim((P \otimes A), (P' \otimes A')) = sim(P, P') \times sim(A, A') \gt 0$
+
+$sim((A \otimes B \otimes C), (A' \otimes B \otimes C \otimes P)) \approx 0$
+
+If using self-inverse products:
+
+$sim((A \otimes B \otimes C), (A' \otimes B \otimes C \otimes P) \otimes P) = sim(A, A')$
+
+## My interpretation
+
+Representation of structure *requires* product operations,\
+which destroy dot-product similarity of result to arguments
+
+-   structural similarity $\neq$ dot-product similarity of core
+    structure
+
+Plate decorates the core structures with components to create similarity
+
+-   Might be *ad hoc* (depends on whetehr it is natural for the
+    contruction process)
+
+-   Might be missing necessary structure
+
+    -   Predicates are not represented as unique instances,
+
+        -   "Spot bit Fido causing Felix to bite John"
+
+    -   but representing them as unique instances would destroy their
+        similarity
+
+        -   $sim((bite_1 \otimes bite_{agt} \otimes X), (bite_2 \otimes bite_{agt} \otimes X)) \approx 0$
+
+## Dot-product similarity is local
+
+Dot-product similarity is at the heart of VSA system dynamics
+
+Dot-product similarity is "local"
+
+-   Most vectors are quasi-orthogonal to direction of interest
+-   Similarity doesn't discriminate between them
+-   Therefore similarity driven dynamics can't select between orthogonal
+    directions
+
+Relational structure is encoded via Multiply and Permute, which are
+randomising (orthogonalising)
+
+-   Therefore, something needs to be done to transform relational
+    distance into similarity so that it can engage the dynamics
+
+## ???
+
+Problem of two - representations are naked
+
+Needs a substitution to make the similarities visible
+
+## Mikolov - Learned word vectors
+
+## Kanerva - Simple substitution
+
+## Emruli - Substitution with lookup
 
 ## Gayler - Settling on substitution
 
