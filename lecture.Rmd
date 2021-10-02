@@ -25,7 +25,7 @@ Analogy is a good use case for the unique properties of VSA/HDC
 -   Which VSA/HDC features might help with analogy?
 -   Not a solved problem
 
-Use a set of attempts at aspects of analogy to highlight VSA/HDC design
+Use a set of attempts at aspects of analogy to highlight some VSA design
 issues
 
 ## Outline
@@ -46,18 +46,18 @@ VSA design examples:
 
 *ANALOGY* $\triangleq$ what analogy *really* is
 
-Whatever it is, *ANALOGY* is **big**
+Whatever it is, *ANALOGY* as a cognitive phenomenon is a complex,
+nuanced thing
 
--   It's a complex, nuanced, high dimensional thing
+-   Everybody presents a different partial view of *ANALOGY*
 
--   Everybody presents a different low dimensional projection of
-    *ANALOGY*
-
-    -   Tendency to view the projection as the whole thing
+    -   Tendency to interpret the partial view as the whole thing
 
         -   Analogical reasoning
         -   Proportional analogies
         -   Grand analogy (analogy as a party trick)
+
+    -   Please don't do that
 
 *ANALOGY* is too big to fit in this lecture, so I will resort to
 assertions and hand waving to explain enough of it for current purposes
@@ -90,7 +90,7 @@ evidence
 
 Evidence and hypotheses are represented relationally (trees/graphs)
 
--   This is effectively a bet that natural regularities are best
+-   This is effectively a bet that natural regularities are "best"
     captured as transformations
 
 "explains" is interpreted as graph structure matching - (sub)graph
@@ -99,7 +99,7 @@ isomorphism
 -   "common essence" = common relational structure
 
 Partial structure matching enables inference by carrying structure from
-one representation to another (like pattern completion in
+one representation to another (think of it as pattern completion via
 autoassociative memory)
 
 ## How are hypotheses generated?
@@ -295,7 +295,7 @@ Dot-product similarity is at the heart of VSA system dynamics
 
 Dot-product similarity is "local"
 
--   Most vectors are quasi-orthogonal to direction of interest
+-   Almost all vectors are quasi-orthogonal to direction of interest
 -   Similarity doesn't discriminate between them
 -   Therefore similarity driven dynamics can't select between orthogonal
     directions
