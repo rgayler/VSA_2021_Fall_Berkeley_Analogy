@@ -188,7 +188,7 @@ Substitution is a primitive (via binding)
 
 ## Plate - Hand crafted similarity
 
-Focus of Chapter 6 of Plate's thesis (1994) is the adequacy of
+Focus of Chapter 6 of Plate's thesis (1994) is the use of
 dot-product similarity as a measure of structural similarity of
 representations
 
@@ -233,77 +233,94 @@ other than shared predicates.)
 ![<font size="1">Plate
 (1994)</font>](assets/plate-base_token.png){width="74%"}
 
-## Episode construction - Probe vector
+## Stimulus episode representation construction
 
-"Spot bit Jane, causing Jane to flee from Spot"
+Probe episode (**P**): "Spot bit Jane, causing Jane to flee from Spot"
 
 ![<font size="1">Plate
 (1994)</font>](assets/plate-probe_vector.png){width="100%"}
 
-Note the addition of "lower level" components to the representations of
-"higher level" composites
+Note the addition of "lower level" components into the representations
 
-Construction of all the episode vectors follows the same scheme
+- These are not strictly necessary for representing the structure
+
+Construction of all the episode representations follows the same scheme
 
 ## Dot-product similarity with Probe
 
 ![<font size="1">Plate
 (2000)</font>](assets/plate-similarities.png){width="100%"}
 
-## Reminders of dot-product similarity
+## Reminders of dot-product similarity properties
 
-$sim(A, A') = sim(A, A + X) \gt 0$
+<font size="5">
 
-$sim((P \otimes A), (P \otimes A')) = sim(A, A') \gt 0$
+$sim(A, A') = sim(A, (A + X)) \gt 0$
 
-$sim((P \otimes A), (P' \otimes A')) = sim(P, P') \times sim(A, A') \gt 0$
+$sim(A, (A \otimes P)) \approx 0$
 
-$sim((A \otimes B \otimes C), (A' \otimes B \otimes C \otimes P)) \approx 0$
+$sim((A \otimes P), (A' \otimes P)) = sim(A, A') \gt 0$
+
+$sim((A \otimes P), (A' \otimes P')) = sim(A, A') \times sim(P, P') \gt 0$
+
+$sim((A \otimes B \otimes \ldots \otimes X), (A' \otimes B \otimes \ldots \otimes X)) = sim(A, A') \gt 0$
+
+$sim((A \otimes B \otimes \ldots \otimes X), (A' \otimes B \otimes \ldots \otimes X \otimes Y)) \approx 0$
 
 If using self-inverse products:
 
-$sim((A \otimes B \otimes C), (A' \otimes B \otimes C \otimes P) \otimes P) = sim(A, A')$
+$sim((A \otimes B \otimes \ldots \otimes X), (A' \otimes B \otimes \ldots \otimes X \otimes Y) \otimes Y^\dagger) = sim(A, A')$
 
-## My interpretation
+$\dagger$ This is equivalent to applying the substitution $Y \mapsto \textbf{1}$
+
+</font>
+
+## My interpretation of Plate (1994) Chapter 6
+
+<font size="5">
 
 Representation of structure *requires* product operations,\
-which destroy dot-product similarity of result to arguments
+which destroys dot-product similarity of result to arguments
 
--   structural similarity $\neq$ dot-product similarity of core
+-   structural similarity $\neq$ only the dot-product similarity of core
     structure
+- Needs something extra    
 
-Plate decorates the core structures with components to create similarity
+Plate decorates the composite core structures with components to create similarity
 
--   Might be *ad hoc* (depends on whetehr it is natural for the
-    contruction process)
+-   Might be *ad hoc* (depends on whether it is natural for the
+    construction process)
 
 -   Might be missing necessary structure
 
     -   Predicates are not represented as unique instances,
 
-        -   "Spot bit Fido causing Felix to bite John"
+        -   "Spot bit Fido causing Felix to bite John" is ambiguous
 
     -   but representing them as unique instances would destroy their
         similarity
 
-        -   $sim((bite_1 \otimes bite_{agt} \otimes X), (bite_2 \otimes bite_{agt} \otimes X)) \approx 0$
+        -   $sim((bite_1 \otimes bite_{agt} \otimes Spot), (bite_2 \otimes bite_{agt} \otimes Spot)) \approx 0$
+        
+</font>
 
 ## Dot-product similarity is local
 
 Dot-product similarity is at the heart of VSA system dynamics
 
-Dot-product similarity is "local"
+Dot-product similarity is very "local"
 
--   Almost all vectors are quasi-orthogonal to direction of interest
--   Similarity doesn't discriminate between them
--   Therefore similarity driven dynamics can't select between orthogonal
+-   Almost all vectors are quasi-orthogonal to current state vector
+-   Only a tiny fraction of the vector space has nonzero similarity with state
+-   Miraculous luck if all directions of interest are local to the state
+-   Similarity driven dynamics alone can't select between non-local
     directions
 
-Relational structure is encoded via Multiply and Permute, which are
-randomising (orthogonalising)
+Relational structure encoded by Multiply and Permute, which are
+orthogonalising
 
--   Therefore, something needs to be done to transform relational
-    distance into similarity so that it can engage the dynamics
+-   Something needs to be done to map relational
+    structure into the local space so that it can engage the similarity dynamics
 
 ## ???
 
