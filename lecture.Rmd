@@ -90,36 +90,39 @@ evidence
 
 Evidence and hypotheses are represented relationally (trees/graphs)
 
--   This is effectively a bet that natural regularities are "best"
-    captured as transformations
+-   A bet that natural regularities are "best" captured as
+    transformations
 
 "explains" is interpreted as graph structure matching - (sub)graph
 isomorphism
 
--   "common essence" = common relational structure
+-   structural similarity = literal similarity | optimal substitution of literals
+
+-   analogical "common essence" = common relational structure
 
 Partial structure matching enables inference by carrying structure from
-one representation to another (think of it as pattern completion via
-autoassociative memory)
+one representation to another (pattern completion via autoassociative
+memory)
 
-## How are hypotheses generated?
+## Where do the hypotheses come from?
 
 Hypotheses are generated from *all* the agent's relevant knowledge
 
-The hypothesis space must be open-ended, to allow for novelty
+The hypothesis space must be open-ended, to allow for explaining novelty
 
 -   Hypotheses must be compositional
 
     -   Allows infinite productivity
     -   Allows novel compositions of familiar components
     -   Like a grammar for hypotheses
+    
+-   Substitution enables composition (there may be other mechanisms)    
 
 ## Example: Relational representation
 
 solar system = base structure = hypothesis (on this slide)\
 atom = target structure = evidence (on this slide)\
-structural similarity = literal similarity given appropriate systematic
-substitution
+structural similarity = literal similarity | <font size="5">$\{sun \mapsto nucleus, planet \mapsto electron\}$</font>
 
 ![<font size="1">Chalmers et al
 (1992)</font>](assets/chalmers-analogy_graphs.png){width="60%"}
@@ -166,26 +169,22 @@ larger
 Considering the transitive closure of analogical augmentations is much
 larger
 
-## Which VSA features might help with analogy?
+## Preview: Which VSA features might help?
 
-Preview only at this point
+Hardware parallelism
 
--   Hardware parallelism
+-   Operations are generally elementwise
+-   Small fan-in per element
 
-    -   Operations are generally elementwise
-    -   Small fan-in per element
+Mathematical parallelism (avoids explicit enumeration)
 
--   Mathematical parallelism
+-   The hardware only "sees" the total vector
+-   Distributive parallelism
+    -   (A + B + C) \* $\rho$(P + Q + R) = A\*$\rho$P + A\*$\rho$Q + ... B\*$\rho$P + B\*$\rho$Q + ...
+-   Equational parallelism
+    -   T = (A + B + C) = (P + Q + R + S) = (X \* Y \* Z) = ...
 
-    -   Distributive parallelism
-
-        -   A \* (B + C + ...) = A*B + A*C + ...
-
-    -   Equational parallelism
-
-        -   T = A + B + C = P + Q + R + S = X \* Y \* Z
-
-    -   The hardware only "sees" the total vector
+Substitution is a primitive (via binding)
 
 ## Plate - Hand crafted similarity
 
