@@ -191,7 +191,7 @@ Substitution is a primitive (via binding)
 
 </font>
 
-## Plate - Hand crafted similarity
+## Plate (1994) - Hand crafted similarity
 
 Focus of Chapter 6 of Plate's thesis (1994) is the use of
 dot-product similarity as a measure of structural similarity of
@@ -327,7 +327,48 @@ orthogonalising
 -   Something needs to be done to map relational
     structure into the local space so that it can engage the similarity dynamics
 
-## Mikolov - Learned word vectors
+## Mikolov et al (2013) - Learned word similarity
+
+Proportional analogy with learned "semantic" vectors for words
+
+- $a:a' :: b:b'$
+- $man:woman :: king::queen$
+- $V_{woman} - V_{man} + V_{king} \overset{?}{=} V_{queen}$
+
+![<font size="1">Mikolov et al (2013)</font>](assets/mikolov-offsets.png){width="70%"}
+
+## Successful analogy? Not so much
+
+Doesn't work as well as originally thought (Rogers et al, 2017)
+
+- Relies on excluding $b$ from answer set (or using multiple choice)
+- Works best when $a$, $a'$, and $b$ are relatively similar to each other and to $b'$
+- Poor at some classes of relations, e.g. synonymy, antonymy
+
+*ANALOGY* enables proportional analogy, but proportional analogy $\neq$ *ANALOGY*
+
+"semantic" vectors don't capture *SEMANTICS*
+
+- Semantic vectors don't know how to change a flat tyre
+- Captures a narrow subset of linguistic regularities induced by *SEMANTICS*
+- *ANALOGY* engages with *SEMANTICS*
+
+## Vector semantics and dot-product similarity
+
+Proportional analogy via semantic vectors implies semantics $\equiv$ additive features
+
+$V_{woman} - V_{man} + V_{king}$\
+= $(V_{person} + V_{FvsM}) - (V_{person} - V_{FvsM}) + (V_{person} - V_{FvsM} + V_{royal})$\
+= $V_{person} + V_{FvsM} + V_{royal})$\
+= $V_{queen}$\
+
+Additive features can't capture *SEMANTICS*
+
+*ANALOGY* is about structural relational similarity
+
+- Representing relational structure requires product operators
+- Static dot-product similarity structure is driven by additive structure
+- Dot-product similarity (by itself) can't fully capture structural similarity
 
 ## Kanerva - Simple substitution
 
