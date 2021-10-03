@@ -449,7 +449,7 @@ slide:not(.current) .plotly.html-widget{
 
 <p>Proportional analogy via semantic vectors implies semantics \(\equiv\) additive features</p>
 
-<p>\(V_{woman} - V_{man} + V_{king}\)<br/>= \((V_{person} + V_{FvsM}) - (V_{person} - V_{FvsM}) + (V_{person} - V_{FvsM} + V_{royal})\)<br/>= \(V_{person} + V_{FvsM} + V_{royal})\)<br/>= \(V_{queen}\)<br/></p>
+<p>\(V_{woman} - V_{man} + V_{king}\)<br/>\(= (V_{person} + V_{FvsM}) - (V_{person} - V_{FvsM}) + (V_{person} - V_{FvsM} + V_{royal})\)<br/>\(= V_{person} + V_{FvsM} + V_{royal})\)<br/>\(= V_{queen}\)<br/></p>
 
 <p>Additive features can’t capture <em>SEMANTICS</em></p>
 
@@ -461,7 +461,17 @@ slide:not(.current) .plotly.html-widget{
 <li>Dot-product similarity (by itself) can’t fully capture structural similarity</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Kanerva - Simple substitution</h2></hgroup><article  id="kanerva---simple-substitution">
+</article></slide><slide class=""><hgroup><h2>Systematic substitution via binding</h2></hgroup><article  id="systematic-substitution-via-binding">
+
+<p>A binding can be used as a partial function for substitution<br/>The substitution is applied uniformly across the components of the argument</p>
+
+<p>With a commutative, self-inverse product operator (e.g. BSC, MAP):<br/>\(A \otimes X \equiv \{ A \mapsto X, X \mapsto A \}\)</p>
+
+<p>Apply the substitution by binding it with the argument:<br/>\(\mathbf{(A \otimes X)} \otimes (A + A \otimes B + X \otimes B + C)\)<br/>\(= A \otimes X \otimes A + A \otimes X \otimes A \otimes B + A \otimes X \otimes X \otimes B + A \otimes X \otimes C\)<br/>\(= (A \otimes A) \otimes X + (A \otimes A) \otimes X \otimes B + A \otimes (X \otimes X) \otimes B + A \otimes X \otimes C\)<br/>\(= \textbf{1} \otimes X + \textbf{1} \otimes X \otimes B + A \otimes \textbf{1} \otimes B + A \otimes X \otimes C\)<br/>\(= X + X \otimes B + A \otimes B + A \otimes X \otimes C\)</p>
+
+<p>\((A + A \otimes B + X \otimes B + C) \overset{(A \otimes X)}{\mapsto} (X + X \otimes B + A \otimes B + A \otimes X \otimes )\)</p>
+
+</article></slide><slide class=""><hgroup><h2>Kanerva (2010) - Hand crafted substitution</h2></hgroup><article  id="kanerva-2010---hand-crafted-substitution">
 
 </article></slide><slide class=""><hgroup><h2>Emruli - Substitution with lookup</h2></hgroup><article  id="emruli---substitution-with-lookup">
 

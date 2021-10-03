@@ -358,9 +358,9 @@ Doesn't work as well as originally thought (Rogers et al, 2017)
 Proportional analogy via semantic vectors implies semantics $\equiv$ additive features
 
 $V_{woman} - V_{man} + V_{king}$\
-= $(V_{person} + V_{FvsM}) - (V_{person} - V_{FvsM}) + (V_{person} - V_{FvsM} + V_{royal})$\
-= $V_{person} + V_{FvsM} + V_{royal})$\
-= $V_{queen}$\
+$= (V_{person} + V_{FvsM}) - (V_{person} - V_{FvsM}) + (V_{person} - V_{FvsM} + V_{royal})$\
+$= V_{person} + V_{FvsM} + V_{royal})$\
+$= V_{queen}$\
 
 Additive features can't capture *SEMANTICS*
 
@@ -370,7 +370,24 @@ Additive features can't capture *SEMANTICS*
 - Static dot-product similarity structure is driven by additive structure
 - Dot-product similarity (by itself) can't fully capture structural similarity
 
-## Kanerva - Simple substitution
+## Systematic substitution via binding
+
+A binding can be used as a partial function for substitution\
+The substitution is applied uniformly across the components of the argument
+
+With a commutative, self-inverse product operator (e.g. BSC, MAP):\
+$A \otimes X \equiv \{ A \mapsto X, X \mapsto A \}$
+
+Apply the substitution by binding it with the argument:\
+$\mathbf{(A \otimes X)} \otimes (A + A \otimes B + X \otimes B + C)$\
+$= A \otimes X \otimes A + A \otimes X \otimes A \otimes B + A \otimes X \otimes X \otimes B + A \otimes X \otimes C$\
+$= (A \otimes A) \otimes X + (A \otimes A) \otimes X \otimes B + A \otimes (X \otimes X) \otimes B + A \otimes X \otimes C$\
+$= \textbf{1} \otimes X + \textbf{1} \otimes X \otimes B + A \otimes \textbf{1} \otimes B + A \otimes X \otimes C$\
+$= X + X \otimes B + A \otimes B + A \otimes X \otimes C$
+
+$(A + A \otimes B + X \otimes B + C) \overset{(A \otimes X)}{\mapsto} (X + X \otimes B + A \otimes B + A \otimes X \otimes )$
+
+## Kanerva (2010) - Hand crafted substitution
 
 ## Emruli - Substitution with lookup
 
