@@ -171,6 +171,8 @@ larger
 
 ## Preview: Which VSA features might help?
 
+<font size="5">
+
 Hardware parallelism
 
 -   Operations are generally elementwise
@@ -183,8 +185,11 @@ Mathematical parallelism (avoids explicit enumeration)
     -   (A + B + C) \* $\rho$(P + Q + R) = A\*$\rho$P + A\*$\rho$Q + ... B\*$\rho$P + B\*$\rho$Q + ...
 -   Equational parallelism
     -   T = (A + B + C) = (P + Q + R + S) = (X \* Y \* Z) = ...
+-   Enables holistic transformations
 
 Substitution is a primitive (via binding)
+
+</font>
 
 ## Plate - Hand crafted similarity
 
@@ -321,12 +326,6 @@ orthogonalising
 
 -   Something needs to be done to map relational
     structure into the local space so that it can engage the similarity dynamics
-
-## ???
-
-Problem of two - representations are naked
-
-Needs a substitution to make the similarities visible
 
 ## Mikolov - Learned word vectors
 
