@@ -96,7 +96,8 @@ Evidence and hypotheses are represented relationally (trees/graphs)
 "explains" is interpreted as graph structure matching - (sub)graph
 isomorphism
 
--   structural similarity = literal similarity | optimal substitution of literals
+-   structural similarity = literal similarity \| optimal substitution
+    of literals
 
 -   analogical "common essence" = common relational structure
 
@@ -115,14 +116,15 @@ The hypothesis space must be open-ended, to allow for explaining novelty
     -   Allows infinite productivity
     -   Allows novel compositions of familiar components
     -   Like a grammar for hypotheses
-    
--   Substitution enables composition (there may be other mechanisms)    
+
+-   Substitution enables composition (there may be other mechanisms)
 
 ## Example: Relational representation
 
 solar system = base structure = hypothesis (on this slide)\
 atom = target structure = evidence (on this slide)\
-structural similarity = literal similarity | <font size="5">$\{sun \mapsto nucleus, planet \mapsto electron\}$</font>
+structural similarity = literal similarity \|
+<font size="5">$\{sun \mapsto nucleus, planet \mapsto electron\}$</font>
 
 ![<font size="1">Chalmers et al
 (1992)</font>](assets/chalmers-analogy_graphs.png){width="60%"}
@@ -181,10 +183,16 @@ Hardware parallelism
 Mathematical parallelism (avoids explicit enumeration)
 
 -   The hardware only "sees" the total vector
+
 -   Distributive parallelism
-    -   (A + B + C) \* $\rho$(P + Q + R) = A\*$\rho$P + A\*$\rho$Q + ... B\*$\rho$P + B\*$\rho$Q + ...
+
+    -   (A + B + C) \* $\rho$(P + Q + R) = A\*$\rho$P + A\*$\rho$Q + ...
+        B\*$\rho$P + B\*$\rho$Q + ...
+
 -   Equational parallelism
+
     -   T = (A + B + C) = (P + Q + R + S) = (X \* Y \* Z) = ...
+
 -   Enables holistic transformations
 
 Substitution is a primitive (via binding)
@@ -193,9 +201,8 @@ Substitution is a primitive (via binding)
 
 ## Plate (1994) - Hand crafted similarity
 
-Focus of Chapter 6 of Plate's thesis (1994) is the use of
-dot-product similarity as a measure of structural similarity of
-representations
+Focus of Chapter 6 of Plate's thesis (1994) is the use of dot-product
+similarity as a measure of structural similarity of representations
 
 Reports experiments with hand-crafted representations aimed at
 qualitatively reproducing the results of psychology research into human
@@ -247,7 +254,7 @@ Probe episode (**P**): "Spot bit Jane, causing Jane to flee from Spot"
 
 Note the addition of "lower level" components into the representations
 
-- These are not strictly necessary for representing the structure
+-   These are not strictly necessary for representing the structure
 
 Construction of all the episode representations follows the same scheme
 
@@ -276,7 +283,8 @@ If using self-inverse products:
 
 $sim((A \otimes B \otimes \ldots \otimes X), (A' \otimes B \otimes \ldots \otimes X \otimes Y) \otimes Y^\dagger) = sim(A, A')$
 
-$\dagger$ This is equivalent to applying the substitution $Y \mapsto \textbf{1}$
+$\dagger$ This is equivalent to applying the substitution
+$Y \mapsto \textbf{1}$
 
 </font>
 
@@ -289,9 +297,10 @@ which destroys dot-product similarity of result to arguments
 
 -   structural similarity $\neq$ only the dot-product similarity of core
     structure
-- Needs something extra    
+-   Needs something extra
 
-Plate decorates the composite core structures with components to create similarity
+Plate decorates the composite core structures with components to create
+similarity
 
 -   Might be *ad hoc* (depends on whether it is natural for the
     construction process)
@@ -306,7 +315,7 @@ Plate decorates the composite core structures with components to create similari
         similarity
 
         -   $sim((bite_1 \otimes bite_{agt} \otimes Spot), (bite_2 \otimes bite_{agt} \otimes Spot)) \approx 0$
-        
+
 </font>
 
 ## Dot-product similarity is local
@@ -316,7 +325,8 @@ Dot-product similarity is at the heart of VSA system dynamics
 Dot-product similarity is very "local"
 
 -   Almost all vectors are quasi-orthogonal to current state vector
--   Only a tiny fraction of the vector space has nonzero similarity with state
+-   Only a tiny fraction of the vector space has nonzero similarity with
+    state
 -   Miraculous luck if all directions of interest are local to the state
 -   Similarity driven dynamics alone can't select between non-local
     directions
@@ -324,38 +334,43 @@ Dot-product similarity is very "local"
 Relational structure encoded by Multiply and Permute, which are
 orthogonalising
 
--   Something needs to be done to map relational
-    structure into the local space so that it can engage the similarity dynamics
+-   Something needs to be done to map relational structure into the
+    local space so that it can engage the similarity dynamics
 
 ## Mikolov et al (2013) - Learned word similarity
 
 Proportional analogy with learned "semantic" vectors for words
 
-- $a:a' :: b:b'$
-- $man:woman :: king::queen$
-- $V_{woman} - V_{man} + V_{king} \overset{?}{=} V_{queen}$
+-   $a:a' :: b:b'$
+-   $man:woman :: king::queen$
+-   $V_{woman} - V_{man} + V_{king} \overset{?}{=} V_{queen}$
 
-![<font size="1">Mikolov et al (2013)</font>](assets/mikolov-offsets.png){width="70%"}
+![<font size="1">Mikolov et al
+(2013)</font>](assets/mikolov-offsets.png){width="70%"}
 
 ## Successful analogy? Not so much
 
 Doesn't work as well as originally thought (Rogers et al, 2017)
 
-- Relies on excluding $b$ from answer set (or using multiple choice)
-- Works best when $a$, $a'$, and $b$ are relatively similar to each other and to $b'$
-- Poor at some classes of relations, e.g. synonymy, antonymy
+-   Relies on excluding $b$ from answer set (or using multiple choice)
+-   Works best when $a$, $a'$, and $b$ are relatively similar to each
+    other and to $b'$
+-   Poor at some classes of relations, e.g. synonymy, antonymy
 
-*ANALOGY* enables proportional analogy, but proportional analogy $\neq$ *ANALOGY*
+*ANALOGY* enables proportional analogy, but proportional analogy $\neq$
+*ANALOGY*
 
 "semantic" vectors don't capture *SEMANTICS*
 
-- Semantic vectors don't know how to change a flat tyre
-- Captures a narrow subset of linguistic regularities induced by *SEMANTICS*
-- *ANALOGY* engages with *SEMANTICS*
+-   Semantic vectors don't know how to change a flat tyre
+-   Captures a narrow subset of linguistic regularities induced by
+    *SEMANTICS*
+-   *ANALOGY* engages with *SEMANTICS*
 
 ## Vector semantics and dot-product similarity
 
-Proportional analogy via semantic vectors implies semantics $\equiv$ additive features
+Proportional analogy via semantic vectors implies semantics $\equiv$
+additive features
 
 $V_{woman} - V_{man} + V_{king}$\
 $= (V_{person} + V_{FvsM}) - (V_{person} - V_{FvsM}) + (V_{person} - V_{FvsM} + V_{royal})$\
@@ -366,16 +381,20 @@ Additive features can't capture *SEMANTICS*
 
 *ANALOGY* is about structural relational similarity
 
-- Representing relational structure requires product operators
-- Static dot-product similarity structure is driven by additive structure
-- Dot-product similarity (by itself) can't fully capture structural similarity
+-   Representing relational structure requires product operators
+-   Static dot-product similarity structure is driven by additive
+    structure
+-   Dot-product similarity (by itself) can't fully capture structural
+    similarity
 
 ## Systematic substitution via binding
 
 A binding can be used as a partial function for substitution\
-The substitution is applied uniformly across the components of the argument
+The substitution is applied uniformly across the components of the
+argument
 
-With a commutative, self-inverse product operator (e.g. BSC, MAP):\
+With a commutative, self-inverse product operator, e.g. BSC, MAP\
+(I won't discuss non-commutative or non-self-inverse products here):\
 $A \otimes X \equiv \{ A \mapsto X, X \mapsto A \}$
 
 Apply the substitution by binding it with the argument:\
@@ -387,9 +406,90 @@ $= X + X \otimes B + A \otimes B + A \otimes X \otimes C$
 
 $(A + A \otimes B + X \otimes B + C) \overset{(A \otimes X)}{\mapsto} (X + X \otimes B + A \otimes B + A \otimes X \otimes )$
 
-## Kanerva (2010) - Hand crafted substitution
+## Subtlety of binding
 
-## Emruli - Substitution with lookup
+<font size="5">
+
+Multiple interpretations of bindings ($A \otimes X)$ depending on how
+they are used, e.g.:
+
+-   key:value pair in a dictionary (note key and value are treated
+    identically)
+
+-   variable:value pair (note variable and value are treated
+    identically)
+
+-   Virtual feature detector neuron ($A$ = pattern detected, $X$ =
+    identity of neuron)
+
+-   Inference rule ($A$ = antecedent, $B$ = consequent)
+
+-   Substitution pattern ($A$ = search pattern, $B$ = replacement
+    pattern)
+
+$A$ and $X$ can be arbitrarily complex composites (everything is just a
+vector), e.g.:
+
+-   $(A + B + C) \otimes X = A \otimes X + B \otimes X + C \otimes X$
+-   $A \otimes (X + Y + Z) = A \otimes X + A \otimes Y + A \otimes Z$
+-   $A \otimes B \otimes X \otimes Y = A \otimes (B \otimes X \otimes Y) = (A \otimes X \otimes Y) \otimes B = \ldots$
+
+</font>
+
+## Kanerva (2010) - What is the Dollar of Mexico?
+
+$V_{ustates} = V_{name} \otimes V_{USA} + V_{capital} \otimes V_{WDC} + V_{currency} \otimes V_{USD}$\
+$V_{mexico} = V_{name} \otimes V_{MEX} + V_{capital} \otimes V_{MXC} + V_{currency} \otimes V_{MXN}$\
+
+$V_{U \otimes M} = V_{ustates} \otimes V_{mexico}$\
+$= V_{USA} \otimes V_{MEX} + V_{WDC} \otimes V_{MXC} + V_{USD} \otimes V_{MXN} + noise_1$\
+(a sum of filler substitutions - fillers occupying the same role have been bound)
+
+Warning: $noise$ is the sum of all terms you *know* will not be important
+
+Apply the USA/Mexico mapping, e.g. "What is the Dollar of Mexico?"\
+$V_{U \otimes M} \otimes V_{USD}$\
+$= (V_{USA} \otimes V_{MEX} + V_{WDC} \otimes V_{MXC} + V_{USD} \otimes V_{MXN} + noise_1) \otimes V_{USD}$\
+$= noise_2 + noise_3 + V_{USD} \otimes V_{MXN} \otimes V_{USD} + noise_1 \otimes V_{USD}$\
+$\approx V_{MXN}$\
+
+## Hand crafted substitution
+
+This approach works because of identical roles, e.g. $V_{currency}$
+
+The role representations are static and enumerated in advance
+
+Great if that's all you need
+
+*ANALOGY* needs dynamic substitutions chosen in response to the context
+
+## Emruli et al (2013) - Learned substitution
+
+![<font size="1">Emruli et al
+(2013)</font>](assets/emruli-AMU.png){width="70%"}
+
+"The analogical mapping unit (AMU) which learns mappings of the
+type $x_k \mapsto y_k$ from examples and uses bundled mapping vectors stored in
+the SDM to calculate the output vector $y_k$" 
+
+## How it works
+
+$x_k$ is used as the address for Sparse Distributed Memory (SDM)\
+$x_k \otimes y_k$ is used as the value to store in SDM
+
+Mappings are noncommutative because $x_k$ and $y_k$ are used differently
+
+Write mode: mappings are written to SDM\
+Read mode: retrieves average $x_k \otimes y_k$ corresponding to $x_k$ and applies it to $x_k$
+
+SDM does a sort of averaging memory over similar addresses\
+Interpolates over mappings\
+Can't generate novel mappings
+
+Note the "circuit based" approach, including non-VSA components (SDM)\
+There is usually an amount of plumbing and control to deal with\
+A purist would make the control distributed (VSA-like)
+but it's usual to make the control localist as an engineering hack
 
 ## Gayler - Settling on substitution
 
@@ -397,7 +497,7 @@ $(A + A \otimes B + X \otimes B + C) \overset{(A \otimes X)}{\mapsto} (X + X \ot
 
 M. Blokpoel, T. Wareham, P. Haselager, and I. van Rooij (2018) *Deep
 Analogical Inference as the Origin of Hypotheses*. The Journal of
-Problem Solving
+Problem Solving 
 
 D. J. Chalmers, R. M. French, and D. R. Hofstadter (1992) *High-level
 perception, representation, and analogy: A critique of artificial
