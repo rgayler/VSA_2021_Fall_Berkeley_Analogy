@@ -219,7 +219,9 @@ My take,
 but researchers are free to suit the details of their definitions to
 their needs
 
-## Example stimuli <font size="1">(Plate, 2000)</font>
+## Example stimuli
+
+<font size="5">
 
 **P** (Probe) "Spot bit Jane, causing Jane to flee from Spot"
 
@@ -239,6 +241,10 @@ structural but not superficial similarity).
 **FOR** (First-order-relations only) "Mort fled from Felix, causing
 Felix to bite Mort." (Has neither structural nor superficial similarity,
 other than shared predicates.)
+
+</font>
+
+<font size="1">Plate (2000) </font>
 
 ## Base and token vectors
 
@@ -491,7 +497,43 @@ There is usually an amount of plumbing and control to deal with\
 A purist would make the control distributed (VSA-like)
 but it's usual to make the control localist as an engineering hack
 
-## Gayler - Settling on substitution
+## Gayler & Levy (2009) - Settling on substitution
+
+##
+
+![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-2_graphs.png){width="100%"}
+
+##
+
+![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-adjacency.png){width="100%"}
+
+##
+
+![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-association.png){width="100%"}
+
+##
+
+![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-adjacency.png){width="100%"}
+
+##
+
+![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-replicator_eqns.png){width="100%"}
+
+##
+
+![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-circuit_localist.png){width="100%"}
+
+##
+
+![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-settling_localist.png){width="100%"}
+
+##
+
+![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-circuit_distributed.png){width="100%"}
+
+##
+
+![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-settling_distributed.png){width="100%"}
 
 ## References / Reading
 
