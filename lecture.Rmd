@@ -501,6 +501,10 @@ but it's usual to make the control localist as an engineering hack
 
 ##
 
+Graph isomorphism
+
+Find vertex mapping
+
 ![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-2_graphs.png){width="100%"}
 
 ##
