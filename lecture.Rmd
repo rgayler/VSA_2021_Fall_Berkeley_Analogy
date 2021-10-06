@@ -37,10 +37,10 @@ Why is analogy hard for conventional computing?
 VSA design examples:
 
 -   Plate - Similarity of hand crafted vectors
--   Mikolov - Similarity of learned word vectors
+-   Mikolov et al - Similarity of learned word vectors
 -   Kanerva - Simple substitution
--   Emruli - Substitution with lookup
--   Gayler - Settling on substitution
+-   Emruli et al - Substitution with lookup
+-   Gayler & Levy - Settling on substitution
 
 ## What is *ANALOGY*?
 
@@ -156,7 +156,7 @@ structural similarity = literal similarity \|
 
 ## Why is analogy hard for conventional computing?
 
-Subgraph isomorphism (of two graphs) is NP-complete
+Subgraph isomorphism, of two graphs, is NP-complete (intractable)
 
 -   Considers all possible vertex mappings
 
@@ -175,10 +175,7 @@ larger
 
 <font size="5">
 
-Hardware parallelism
-
--   Operations are generally elementwise
--   Small fan-in per element
+Hardware parallelism (elemnetwise operations with small fan-in)
 
 Mathematical parallelism (avoids explicit enumeration)
 
@@ -196,6 +193,8 @@ Mathematical parallelism (avoids explicit enumeration)
 -   Enables holistic transformations
 
 Substitution is a primitive (via binding)
+
+-   Every value is potentially a variable
 
 </font>
 
@@ -467,6 +466,8 @@ The role representations are static and enumerated in advance
 
 Great if that's all you need
 
+- Seriously, if that's all you need, it's the best way to do something analogy-like
+
 *ANALOGY* needs dynamic substitutions chosen in response to the context
 
 ## Emruli et al (2013) - Learned substitution
@@ -480,17 +481,17 @@ the SDM to calculate the output vector $y_k$"
 
 ## How it works
 
-$x_k$ is used as the address for Sparse Distributed Memory (SDM)\
-$x_k \otimes y_k$ is used as the value to store in SDM
+$x_k$ is used as the address for the Sparse Distributed Memory (SDM)\
+The mapping $x_k \otimes y_k$ is used as the value to store in the SDM
 
 Mappings are noncommutative because $x_k$ and $y_k$ are used differently
 
 Write mode: mappings are written to SDM\
-Read mode: retrieves average $x_k \otimes y_k$ corresponding to $x_k$ and applies it to $x_k$
+Read mode: retrieves average mapping corresponding to $x_k$ and applies it to $x_k$
 
 SDM does a sort of averaging memory over similar addresses\
 Interpolates over mappings\
-Can't generate novel mappings
+Can't generate completely novel mappings
 
 Note the "circuit based" approach, including non-VSA components (SDM)\
 There is usually an amount of plumbing and control to deal with\
@@ -499,45 +500,148 @@ but it's usual to make the control localist as an engineering hack
 
 ## Gayler & Levy (2009) - Settling on substitution
 
-##
+Graph isomorphism (not analogical mapping, but a proxy for necessary process)
 
-Graph isomorphism
+Find vertex mappings that make the graphs identical
 
-Find vertex mapping
+- $\{ A \mapsto P,  B \mapsto Q,  C \mapsto S,  D \mapsto R \}$
+- $\{ A \mapsto P,  B \mapsto Q,  C \mapsto R,  D \mapsto S \}$
 
-![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-2_graphs.png){width="100%"}
+![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-2_graphs.png){width="70%"}
 
-##
+## How it works: The long and winding road
 
-![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-adjacency.png){width="100%"}
+The explanation is going to be long winded (sorry)
 
-##
+- What is a graph isomorphism (implementable definition)?
+- Localist heuristic to find graph isomorphisms
+- VSA distributed implementation of localist method
 
-![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-association.png){width="100%"}
+## Adjacency matrix of a graph
 
-##
+How to represent a graph with a matrix
 
-![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-adjacency.png){width="100%"}
+- Row and column indices correspond to vertices
+- Cell entries indicate edges
 
-##
+![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-adjacency.png){width="60%"}
 
-![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-replicator_eqns.png){width="100%"}
+## Association graph
 
-##
+<font size="5">
 
-![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-circuit_localist.png){width="100%"}
+The association graph is a graph product of the two graphs\
+- Vertices correspond to vertex mappings of the two graphs\
+- Edges correspond to edge existence agreement of the vertex mappings\
+- A maximal clique corresponds to a maximal isomorphism of the two graphs
 
-##
+</font>
 
-![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-settling_localist.png){width="100%"}
+![<font size="1">Gayler (2009) Melbourne University presentation (editted). Only a subset of vertices and edges shown.</font>](assets/gayler-association2.png){width="59%"}
 
-##
+## How to find a maximal clique of a graph
 
-![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-circuit_distributed.png){width="100%"}
+Replicator equations (from evolutionary game theory)\
+Also interpretable as Bayesian update\
 
-##
+$x(t)$ = prior distribution = support for each possible vertex mapping\
+$x(t + 1)$ = posterior distribution = support for each possible vertex mapping\
+$w$ = adjacency matrix of association graph\
+$\pi(t)$ = likelihood = multiplicative update to vertex mapping support given $w$
 
-![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-settling_distributed.png){width="100%"}
+![<font size="1">Gayler (2009) Melbourne University presentation</font>](assets/gayler-replicator_eqns.png){width="20%"}
+
+## Replicator equation circuit
+
+Localist representation of mappings (potentially large)
+
+$k$ number of vertices in each of the two graphs\
+$dim(x) = dim(\pi) = k^2$\
+$dim(w) = k^2 \times k^2$
+
+![<font size="1">Gayler (2009) Melbourne University presentation</font>](assets/gayler-circuit_localist.png){width="35%"}
+
+$\land \triangleq$ elementwise product
+
+## Settling of localist replicator equations
+
+![<font size="1">Gayler (2009) Melbourne University presentation</font>](assets/gayler-settling_localist.png){width="55%"}
+
+## VSA representations for replicator equations
+
+<font size="5">
+
+Vertices: $A, B, C, D, P, Q, R, S$
+
+Edges: $B \otimes C,B \otimes D, Q \otimes R, Q \otimes S$
+
+Graph vertex sets: $(A + B + C + D), (P + Q + R + S)$
+
+Graph edge sets: $(B \otimes C + B \otimes D), (Q \otimes R + Q \otimes S)$
+
+Initial potential vertex mappings = $x(t = 1)$ =\
+$(A + B + C + D) \otimes (P + Q + R + S)$ =\
+$A \otimes P + A \otimes Q + \ldots + B \otimes P + B \otimes Q + \ldots + D \otimes S$
+
+Association graph edges (positive only) = potential edge mappings = $w$ =\
+$(B \otimes C + B \otimes D) \otimes (Q \otimes R + Q \otimes S)$ =\
+$(B \otimes C \otimes Q \otimes R) + (B \otimes C \otimes Q \otimes S) + (B \otimes D \otimes Q \otimes R) + (B \otimes D \otimes Q \otimes S)$
+
+</font>
+
+##  VSA replicator equation circuit
+
+Interpret all vectors as being of the form $kV$,\
+where $k$ is the magnitude/support for $V$ (the unit magnitude direction)
+
+Analog computing: $V$ is the labelled wire, $k$ is the voltage on the wire
+
+![<font size="1">Gayler (2009) Melbourne University presentation</font>](assets/gayler-circuit_distributed.png){width="70%"}
+
+## Multiset intersection
+
+$\land \triangleq$ multiset intersection
+
+A multiset is a set with a nonnegative magnitude of membership for each element
+(i.e. the magnitudes of the component vectors vary across components)
+
+$arg_1 = a V_1 + b V_2 + c V_3$\
+$arg_1 = p V_1 + q V_2 + r V_4$\
+
+$\land(arg_1, arg_2) = a p V_1 + b q V_2$
+
+The elementwise multiplication of the magnitudes of the component vectors
+
+This corresponds to the elementwise multiplication of support for the vertex mappings in the localist version
+
+Won't go into the implementation here
+
+## Evidence propagation
+
+<font size="5">
+
+Association graph edges have the form: $B \otimes C \otimes Q \otimes R$\
+and can be interpreted as mappings:\
+$(B \otimes C) \otimes (Q \otimes R)$ # interpret as mapping between edges in the graphs\
+$(B \otimes Q) \otimes (C \otimes R)$ # interpret as mapping between vertex mappings
+
+Association graph edges applied as inference rules:
+
+$\pi = x \otimes w$\
+= $(B \otimes Q + \ldots ) \otimes (B \otimes C \otimes Q \otimes R + \ldots )$\
+= (vertex mappings) $\otimes$ (mappings between vertex mappings)\
+= $(k(B \otimes Q) + \ldots ) \otimes ((B \otimes Q) \otimes (C \otimes R) + \ldots )$\
+= $k(C \otimes R) + \ldots$
+
+Interpret $(B \otimes Q) \otimes (C \otimes R)$ as the rule:\
+"To the extent that $B \otimes Q$ is supported as part of the solution\
+Increase the support for $C \otimes R$ as part of the solution"
+
+</font>
+
+##  Settling of VSA replicator equation circuit
+
+![<font size="1">Gayler (2009) Melbourne University presentation</font>](assets/gayler-settling_distributed.png){width="63%"}
 
 ## References / Reading
 
