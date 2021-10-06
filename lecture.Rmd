@@ -1,6 +1,7 @@
 ---
 title: "Analogical Reasoning"
-author: "Ross Gayler"
+subtitle: "Module 6, Neuroscience 299, University of California, Berkeley"
+author: "Ross W Gayler <font size=\"2\">ORCiD: 0000-0003-4679-585X</font> ross@rossgayler.com"
 date: "2021-10-06"
 output: 
   ioslides_presentation:
@@ -288,7 +289,7 @@ If using self-inverse products:
 
 $sim((A \otimes B \otimes \ldots \otimes X), (A' \otimes B \otimes \ldots \otimes X \otimes Y) \otimes Y^\dagger) = sim(A, A')$
 
-$\dagger$ This is equivalent to applying the substitution
+$\dagger$ $. \otimes Y$ is equivalent to applying the substitution
 $Y \mapsto \textbf{1}$
 
 </font>
@@ -316,10 +317,10 @@ similarity
 
         -   "Spot bit Fido causing Felix to bite John" is ambiguous
 
-    -   but representing them as unique instances would destroy their
+    -   but representing them as unique instances might destroy their
         similarity
 
-        -   $sim((bite_1 \otimes bite_{agt} \otimes Spot), (bite_2 \otimes bite_{agt} \otimes Spot)) \approx 0$
+        -   $sim((bite_1 \otimes bite_{agt} \otimes Spot), (bite_2 \otimes bite_{agt} \otimes Spot)) \overset{?}{\approx} 0$
 
 </font>
 
@@ -403,13 +404,13 @@ With a commutative, self-inverse product operator, e.g. BSC, MAP\
 $A \otimes X \equiv \{ A \mapsto X, X \mapsto A \}$
 
 Apply the substitution by binding it with the argument:\
-$\mathbf{(A \otimes X)} \otimes (A + A \otimes B + X \otimes B + C)$\
-$= A \otimes X \otimes A + A \otimes X \otimes A \otimes B + A \otimes X \otimes X \otimes B + A \otimes X \otimes C$\
-$= (A \otimes A) \otimes X + (A \otimes A) \otimes X \otimes B + A \otimes (X \otimes X) \otimes B + A \otimes X \otimes C$\
-$= \textbf{1} \otimes X + \textbf{1} \otimes X \otimes B + A \otimes \textbf{1} \otimes B + A \otimes X \otimes C$\
-$= X + X \otimes B + A \otimes B + A \otimes X \otimes C$
+$\mathbf{(A \otimes X)} \otimes (A + A \otimes B + X \otimes C + D)$\
+$= A \otimes X \otimes A + A \otimes X \otimes A \otimes B + A \otimes X \otimes X \otimes C + A \otimes X \otimes D$\
+$= (A \otimes A) \otimes X + (A \otimes A) \otimes X \otimes B + A \otimes (X \otimes X) \otimes C + A \otimes X \otimes D$\
+$= \textbf{1} \otimes X + \textbf{1} \otimes X \otimes B + A \otimes \textbf{1} \otimes C + A \otimes X \otimes D$\
+$= X + X \otimes B + A \otimes C + A \otimes X \otimes D$
 
-$(A + A \otimes B + X \otimes B + C) \overset{(A \otimes X)}{\mapsto} (X + X \otimes B + A \otimes B + A \otimes X \otimes )$
+$(A + A \otimes B + X \otimes C + D) \overset{(A \otimes X)}{\mapsto} (X + X \otimes B + A \otimes C + \mathbf{A \otimes X \otimes D})$
 
 ## Subtlety of binding
 
@@ -448,9 +449,11 @@ $V_{mexico} = V_{name} \otimes V_{MEX} + V_{capital} \otimes V_{MXC} + V_{curren
 
 $V_{U \otimes M} = V_{ustates} \otimes V_{mexico}$\
 $= V_{USA} \otimes V_{MEX} + V_{WDC} \otimes V_{MXC} + V_{USD} \otimes V_{MXN} + noise_1$\
-(a sum of filler substitutions - fillers occupying the same role have been bound)
+(a sum of filler substitutions - fillers occupying the same role have
+been bound)
 
-Warning: $noise$ is the sum of all terms you *know* will not be important
+Warning: $noise$ is the sum of all terms you *know* will not be
+important
 
 Apply the USA/Mexico mapping, e.g. "What is the Dollar of Mexico?"\
 $V_{U \otimes M} \otimes V_{USD}$\
@@ -466,7 +469,8 @@ The role representations are static and enumerated in advance
 
 Great if that's all you need
 
-- Seriously, if that's all you need, it's the best way to do something analogy-like
+-   Seriously, if that's all you need, it's the best way to do something
+    analogy-like
 
 *ANALOGY* needs dynamic substitutions chosen in response to the context
 
@@ -475,9 +479,9 @@ Great if that's all you need
 ![<font size="1">Emruli et al
 (2013)</font>](assets/emruli-AMU.png){width="70%"}
 
-"The analogical mapping unit (AMU) which learns mappings of the
-type $x_k \mapsto y_k$ from examples and uses bundled mapping vectors stored in
-the SDM to calculate the output vector $y_k$" 
+"The analogical mapping unit (AMU) which learns mappings of the type
+$x_k \mapsto y_k$ from examples and uses bundled mapping vectors stored
+in the SDM to calculate the output vector $y_k$" Emruli et al (2013)
 
 ## How it works
 
@@ -487,7 +491,8 @@ The mapping $x_k \otimes y_k$ is used as the value to store in the SDM
 Mappings are noncommutative because $x_k$ and $y_k$ are used differently
 
 Write mode: mappings are written to SDM\
-Read mode: retrieves average mapping corresponding to $x_k$ and applies it to $x_k$
+Read mode: retrieves average mapping corresponding to $x_k$ and applies
+it to $x_k$
 
 SDM does a sort of averaging memory over similar addresses\
 Interpolates over mappings\
@@ -495,36 +500,39 @@ Can't generate completely novel mappings
 
 Note the "circuit based" approach, including non-VSA components (SDM)\
 There is usually an amount of plumbing and control to deal with\
-A purist would make the control distributed (VSA-like)
-but it's usual to make the control localist as an engineering hack
+A purist would make the control distributed (VSA-like) but it's usual to
+make the control localist as an engineering hack
 
 ## Gayler & Levy (2009) - Settling on substitution
 
-Graph isomorphism (not analogical mapping, but a proxy for necessary process)
+Graph isomorphism (not analogical mapping, but a proxy for necessary
+process)
 
 Find vertex mappings that make the graphs identical
 
-- $\{ A \mapsto P,  B \mapsto Q,  C \mapsto S,  D \mapsto R \}$
-- $\{ A \mapsto P,  B \mapsto Q,  C \mapsto R,  D \mapsto S \}$
+-   $\{ A \mapsto P, B \mapsto Q, C \mapsto S, D \mapsto R \}$
+-   $\{ A \mapsto P, B \mapsto Q, C \mapsto R, D \mapsto S \}$
 
-![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-2_graphs.png){width="70%"}
+![<font size="1">Gayler & Levy
+(2009)</font>](assets/gayler-2_graphs.png){width="70%"}
 
 ## How it works: The long and winding road
 
 The explanation is going to be long winded (sorry)
 
-- What is a graph isomorphism (implementable definition)?
-- Localist heuristic to find graph isomorphisms
-- VSA distributed implementation of localist method
+-   What is a graph isomorphism (implementable definition)?
+-   Localist heuristic to find graph isomorphisms
+-   VSA distributed implementation of localist method
 
 ## Adjacency matrix of a graph
 
 How to represent a graph with a matrix
 
-- Row and column indices correspond to vertices
-- Cell entries indicate edges
+-   Row and column indices correspond to vertices
+-   Cell entries indicate edges
 
-![<font size="1">Gayler & Levy (2009)</font>](assets/gayler-adjacency.png){width="60%"}
+![<font size="1">Gayler & Levy
+(2009)</font>](assets/gayler-adjacency.png){width="60%"}
 
 ## Association graph
 
@@ -533,11 +541,14 @@ How to represent a graph with a matrix
 The association graph is a graph product of the two graphs\
 - Vertices correspond to vertex mappings of the two graphs\
 - Edges correspond to edge existence agreement of the vertex mappings\
-- A maximal clique corresponds to a maximal isomorphism of the two graphs
+- A maximal clique corresponds to a maximal isomorphism of the two
+graphs
 
 </font>
 
-![<font size="1">Gayler (2009) Melbourne University presentation (editted). Only a subset of vertices and edges shown.</font>](assets/gayler-association2.png){width="59%"}
+![<font size="1">Gayler (2009) Melbourne University presentation
+(editted). Only a subset of vertices and edges
+shown.</font>](assets/gayler-association2.png){width="59%"}
 
 ## How to find a maximal clique of a graph
 
@@ -545,11 +556,14 @@ Replicator equations (from evolutionary game theory)\
 Also interpretable as Bayesian update\
 
 $x(t)$ = prior distribution = support for each possible vertex mapping\
-$x(t + 1)$ = posterior distribution = support for each possible vertex mapping\
+$x(t + 1)$ = posterior distribution = support for each possible vertex
+mapping\
 $w$ = adjacency matrix of association graph\
-$\pi(t)$ = likelihood = multiplicative update to vertex mapping support given $w$
+$\pi(t)$ = likelihood = multiplicative update to vertex mapping support
+given $w$
 
-![<font size="1">Gayler (2009) Melbourne University presentation</font>](assets/gayler-replicator_eqns.png){width="20%"}
+![<font size="1">Gayler (2009) Melbourne University
+presentation</font>](assets/gayler-replicator_eqns.png){width="20%"}
 
 ## Replicator equation circuit
 
@@ -559,13 +573,15 @@ $k$ number of vertices in each of the two graphs\
 $dim(x) = dim(\pi) = k^2$\
 $dim(w) = k^2 \times k^2$
 
-![<font size="1">Gayler (2009) Melbourne University presentation</font>](assets/gayler-circuit_localist.png){width="35%"}
+![<font size="1">Gayler (2009) Melbourne University
+presentation</font>](assets/gayler-circuit_localist.png){width="35%"}
 
 $\land \triangleq$ elementwise product
 
 ## Settling of localist replicator equations
 
-![<font size="1">Gayler (2009) Melbourne University presentation</font>](assets/gayler-settling_localist.png){width="55%"}
+![<font size="1">Gayler (2009) Melbourne University
+presentation</font>](assets/gayler-settling_localist.png){width="55%"}
 
 ## VSA representations for replicator equations
 
@@ -577,42 +593,50 @@ Edges: $B \otimes C,B \otimes D, Q \otimes R, Q \otimes S$
 
 Graph vertex sets: $(A + B + C + D), (P + Q + R + S)$
 
-Graph edge sets: $(B \otimes C + B \otimes D), (Q \otimes R + Q \otimes S)$
+Graph edge sets:
+$(B \otimes C + B \otimes D), (Q \otimes R + Q \otimes S)$
 
 Initial potential vertex mappings = $x(t = 1)$ =\
 $(A + B + C + D) \otimes (P + Q + R + S)$ =\
 $A \otimes P + A \otimes Q + \ldots + B \otimes P + B \otimes Q + \ldots + D \otimes S$
 
-Association graph edges (positive only) = potential edge mappings = $w$ =\
+Association graph edges (positive only) = potential edge mappings = $w$
+=\
 $(B \otimes C + B \otimes D) \otimes (Q \otimes R + Q \otimes S)$ =\
 $(B \otimes C \otimes Q \otimes R) + (B \otimes C \otimes Q \otimes S) + (B \otimes D \otimes Q \otimes R) + (B \otimes D \otimes Q \otimes S)$
 
 </font>
 
-##  VSA replicator equation circuit
+## VSA replicator equation circuit
 
 Interpret all vectors as being of the form $kV$,\
-where $k$ is the magnitude/support for $V$ (the unit magnitude direction)
+where $k$ is the magnitude/support for $V$ (the unit magnitude
+direction)
 
-Analog computing: $V$ is the labelled wire, $k$ is the voltage on the wire
+Analog computing: $V$ is the labelled wire, $k$ is the voltage on the
+wire
 
-![<font size="1">Gayler (2009) Melbourne University presentation</font>](assets/gayler-circuit_distributed.png){width="70%"}
+![<font size="1">Gayler (2009) Melbourne University
+presentation</font>](assets/gayler-circuit_distributed.png){width="70%"}
 
 ## Multiset intersection
 
 $\land \triangleq$ multiset intersection
 
-A multiset is a set with a nonnegative magnitude of membership for each element
-(i.e. the magnitudes of the component vectors vary across components)
+A multiset is a set with a nonnegative magnitude of membership for each
+element (i.e. the magnitudes of the component vectors vary across
+components)
 
 $arg_1 = a V_1 + b V_2 + c V_3$\
 $arg_1 = p V_1 + q V_2 + r V_4$\
 
 $\land(arg_1, arg_2) = a p V_1 + b q V_2$
 
-The elementwise multiplication of the magnitudes of the component vectors
+The elementwise multiplication of the magnitudes of the component
+vectors
 
-This corresponds to the elementwise multiplication of support for the vertex mappings in the localist version
+This corresponds to the elementwise multiplication of support for the
+vertex mappings in the localist version
 
 Won't go into the implementation here
 
@@ -620,13 +644,15 @@ Won't go into the implementation here
 
 <font size="5">
 
-Association graph edges have the form: $B \otimes C \otimes Q \otimes R$\
+Association graph edges have the form:
+$B \otimes C \otimes Q \otimes R$\
 and can be interpreted as mappings:\
-$(B \otimes C) \otimes (Q \otimes R)$ # interpret as mapping between edges in the graphs\
-$(B \otimes Q) \otimes (C \otimes R)$ # interpret as mapping between vertex mappings
+$(B \otimes C) \otimes (Q \otimes R)$ \# interpret as mapping between
+edges in the graphs\
+$(B \otimes Q) \otimes (C \otimes R)$ \# interpret as mapping between
+vertex mappings
 
-Association graph edges applied as inference rules:
-
+Association graph edges applied as inference rules:\
 $\pi = x \otimes w$\
 = $(B \otimes Q + \ldots ) \otimes (B \otimes C \otimes Q \otimes R + \ldots )$\
 = (vertex mappings) $\otimes$ (mappings between vertex mappings)\
@@ -634,20 +660,21 @@ $\pi = x \otimes w$\
 = $k(C \otimes R) + \ldots$
 
 Interpret $(B \otimes Q) \otimes (C \otimes R)$ as the rule:\
-"To the extent that $B \otimes Q$ is supported as part of the solution\
-Increase the support for $C \otimes R$ as part of the solution"
+"To the extent $k$ that $B \otimes Q$ is supported as part of the solution\
+Increase the support for $C \otimes R$ as part of the solution by $k$"
 
 </font>
 
-##  Settling of VSA replicator equation circuit
+## Settling of VSA replicator equation circuit
 
-![<font size="1">Gayler (2009) Melbourne University presentation</font>](assets/gayler-settling_distributed.png){width="63%"}
+![<font size="1">Gayler (2009) Melbourne University
+presentation</font>](assets/gayler-settling_distributed.png){width="63%"}
 
 ## References / Reading
 
 M. Blokpoel, T. Wareham, P. Haselager, and I. van Rooij (2018) *Deep
 Analogical Inference as the Origin of Hypotheses*. The Journal of
-Problem Solving 
+Problem Solving
 
 D. J. Chalmers, R. M. French, and D. R. Hofstadter (1992) *High-level
 perception, representation, and analogy: A critique of artificial
@@ -706,3 +733,12 @@ vector representations*. Expert Systems
 A. Rogers, A. Drozd, and L. Bofang (2017) *The (too Many) Problems of
 Analogical Reasoning with Word Vectors*. Proceedings of the 6th Joint
 Conference on Lexical and Computational Semantics (\*SEM 2017)
+
+------------------------------------------------------------------------
+
+[DOI: 10.5281/zenodo.5552219](http://doi.org/10.5281/zenodo.5552219)
+
+<font size="2">This presentation is licensed under a Creative Commons
+Attribution 4.0 International License</font>
+
+![<font size="2"><https://creativecommons.org/licenses/by/4.0/></font>](assets/cc_by.png){width="28%"}
