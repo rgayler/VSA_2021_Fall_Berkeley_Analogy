@@ -176,7 +176,7 @@ larger
 
 <font size="5">
 
-Hardware parallelism (elemnetwise operations with small fan-in)
+Hardware parallelism (elementwise operations with small fan-in)
 
 Mathematical parallelism (avoids explicit enumeration)
 
@@ -380,7 +380,7 @@ additive features
 
 $V_{woman} - V_{man} + V_{king}$\
 $= (V_{person} + V_{FvsM}) - (V_{person} - V_{FvsM}) + (V_{person} - V_{FvsM} + V_{royal})$\
-$= V_{person} + V_{FvsM} + V_{royal})$\
+$= V_{person} + V_{FvsM} + V_{royal}$\
 $= V_{queen}$\
 
 Additive features can't capture *SEMANTICS*
@@ -547,7 +547,7 @@ graphs
 </font>
 
 ![<font size="1">Gayler (2009) Melbourne University presentation
-(editted). Only a subset of vertices and edges
+(edited). Only a subset of vertices and edges
 shown.</font>](assets/gayler-association2.png){width="59%"}
 
 ## How to find a maximal clique of a graph
