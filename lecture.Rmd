@@ -10,7 +10,36 @@ output:
 editor_options: 
   markdown: 
     wrap: 72
+
+# This is an ioslides presentation
+# Present the html file by opening it in a web browser (e.g. Chrome)
+# The presentation can be printed to PDF from the web browser
+#
+# Unfortunately: 
+# 1. The html presentation is fixed size, which means displaying it for screen
+# sharing or projection can be a bit fiddly to get the slide to fill the
+# view port (https://github.com/rstudio/rmarkdown/issues/185).
+# 2. Even when the presentation is set to widescreen (16:9) the print to PDF
+# aspect ratio is set to 4:3.
+#
+# Next time I will try to find a more modern presentation package that allows
+# printing to PDF.
 ---
+
+```{r LICENSE, include=FALSE}
+# "Analogical Reasoning" (c) by Ross W. Gayler 2021
+ 
+# This document is the source for the slides of the lecture 
+# "Analogical reasoning" presented 2021-10-06 as Module 6 of Neuroscience 299:
+# Computing with High-Dimensional Vectors at the Redwood Center for Theoretical
+# Neuroscience, University of California, Berkeley.
+# https://redwood.berkeley.edu/courses/computing-with-high-dimensional-vectors
+# 
+# This document is licensed under a Creative Commons Attribution 4.0 International License.
+# 
+# You should have received a copy of the license along with this work.
+# If not, see http://creativecommons.org/licenses/by/4.0/.
+```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
