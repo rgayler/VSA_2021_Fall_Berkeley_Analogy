@@ -6,7 +6,7 @@ Ross Gayler
 <!-- README.md is generated from README.Rmd. Please edit only README.Rmd -->
 <!-- badges: start -->
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5560799.svg)](https://doi.org/10.5281/zenodo.5560799)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5561007.svg)](https://doi.org/10.5281/zenodo.5561007)
 [![License: CC BY
 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
@@ -34,7 +34,7 @@ Video recording of lecture
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5552219.svg)](https://doi.org/10.5281/zenodo.5552219)
 Slides (PDF)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5560799.svg)](https://doi.org/10.5281/zenodo.5560799)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5561007.svg)](https://doi.org/10.5281/zenodo.5561007)
 Source code of slides (this repository)
 
 ## Project structure
